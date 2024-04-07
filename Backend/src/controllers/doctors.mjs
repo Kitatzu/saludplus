@@ -9,7 +9,7 @@ doctorsRouter.get("/", async(req, res) => {
     try {
         const doctors = await Doctor.findAll({
             attributes:{
-                exclude: [ "createdAt", "updatedAt"]
+                exclude: [ "password", "createdAt", "updatedAt"]
             }
         });
         res.status(200).json({
@@ -17,7 +17,10 @@ doctorsRouter.get("/", async(req, res) => {
             data: doctors
         });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ 
+            success: false,
+            error: error.message
+        });
     }
 });
 
@@ -43,6 +46,36 @@ doctorsRouter.post("/register", async(req, res) => {
             success: false,
             error: error.message,
             message: "Error registering doctor"
+        });
+    }
+})
+
+doctorsRouter.get("/login" , async(req, res) => {
+    // TODO: Login doctor
+    try {
+        const { email, password } = req.body;
+        const doctor = await Doctor.findOne({ where: { email } });
+        if (!doctor) {
+            return res.status(404).json({
+                success: false,
+                error: "Doctor not found"
+            });
+        }
+        const isMatch = await bcrypt.compare(password, doctor.password);
+        if (!isMatch) {
+            return res.status(401).json({
+                success: false,
+                error: "Incorrect password"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            data: doctor
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            success: false,
+            error: error.message
         });
     }
 })
