@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize";
+import admin from "./src/models/admin.mjs";
 
 const config = {
   development: {
@@ -14,4 +15,6 @@ const config = {
 
 const sequelize = new Sequelize(config.development);
 
-export default { sequelize };
+const Admin = admin(sequelize);
+
+export default { sequelize, Admin };
