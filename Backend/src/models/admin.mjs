@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
+import sequelize from "../database/startDb.mjs";
 
-export default (sequelize) => {
-  const Admin = sequelize.define("Admin", {
+  const Admin = sequelize.define("admin", {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -24,16 +24,15 @@ export default (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    DNI: {
+    dni: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     rol: {
       type: DataTypes.STRING,
-      defaultValue: "Admin",
+      defaultValue: "admin",
     },
   });
 
-  return Admin;
-};
+  export default Admin
