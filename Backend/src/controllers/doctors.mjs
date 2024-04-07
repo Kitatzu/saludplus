@@ -70,7 +70,14 @@ doctorsRouter.get("/login" , async(req, res) => {
         }
         res.status(200).json({
             success: true,
-            data: doctor
+            data: {
+                email: doctor.email,
+                first_name: doctor.first_name,
+                last_name: doctor.last_name,
+                dni: doctor.dni,
+                registration: doctor.registration,
+                rol : doctor.rol
+            } 
         });
     } catch (error) {
         res.status(500).json({ 
