@@ -19,6 +19,15 @@ patientsRouter.post("/register", (req, res) => {
     }
 });
 
+patientsRouter.get("/login" , (req, res) => {
+    // TODO: Login patient
+    try {
+        
+    } catch (error) {
+        
+    }
+})
+
 patientsRouter.get("/:id", (req, res) => {
     // TODO: Get patient from DB
 });
