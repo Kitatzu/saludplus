@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import router from "./src/routes/routes.mjs";
+import router from "./src/routes/indexRoutes.mjs";
 import sequelize from "./src/database/startDb.mjs";
 import startModels from "./src/database/startModels.mjs";
 
