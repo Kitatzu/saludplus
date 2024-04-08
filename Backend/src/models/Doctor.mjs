@@ -37,7 +37,7 @@ const Doctor = sequelize.define('doctor',{
   rol: {
     type: DataTypes.STRING,
     defaultValue: "doctor",
-  },
+  }
 })
 
 export default Doctor
