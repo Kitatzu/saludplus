@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize"
+import { Sequelize } from "sequelize";
 
 const config = {
   development: {
@@ -10,8 +10,8 @@ const config = {
     port: `${process.env.DB_PORT}`,
     logging: false,
   },
-}
+};
 
-const sequelize = new Sequelize(config.development)
+const sequelize = new Sequelize(config.development);
 
-export default sequelize
+export default sequelize;
