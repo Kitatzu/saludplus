@@ -3,9 +3,14 @@ import cors from "cors";
 import adminRoutes from "./src/routes/admins.routes.mjs";
 import sequelize from "./src/database/startDb.mjs";
 
-// import "./src/models/Admin.mjs";
-// import "./src/models/Doctor.mjs";
-// import "./src/models/Patient.mjs";
+
+import './src/models/Admin.mjs'
+import './src/models/Doctor.mjs'
+import './src/models/Patient.mjs'
+import './src/models/Medical_appointment.mjs'
+import './src/models/MedicalSpeciality.mjs'
+import './src/models/Availabity.mjs'
+
 
 const app = express();
 
