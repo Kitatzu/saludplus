@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize'
 import sequelize from '../database/startDb.mjs'
 import MedicalSpeciality from './MedicalSpeciality.mjs'
-import Availabity from './Availabity.mjs'
+import Availabity from './Availability.mjs'
 
 const Doctor = sequelize.define('doctor',{
   idDoctor: {
@@ -43,12 +43,18 @@ const Doctor = sequelize.define('doctor',{
 })
 
 Doctor.belongsTo(MedicalSpeciality, {
-  foreignKey: 'idMedicalSpeciality',
+  foreignKey: {
+    name: 'idMedicalSpeciality',
+    allowNull: false
+  },
   as: 'medical_speciality'
 })
 
 Doctor.belongsTo(Availabity, {
-  foreignKey: 'idAvailabity',
+  foreignKey: {
+    name: 'idAvailabity',
+    allowNull: false
+  },
   as: 'availabity'
 })
 

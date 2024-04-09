@@ -28,22 +28,34 @@ const MedicalAppointment = sequelize.define('medical_appointment', {
 })
 
 Doctor.hasMany(MedicalAppointment, {
-  foreignKey: 'idDoctor',
+  foreignKey: {
+    name: 'idDoctor',
+    allowNull: false
+  },
   as: 'doctor'
 })
 
 Patient.hasMany(MedicalAppointment, {
-  foreignKey: 'idPatient',
+  foreignKey: {
+    name: 'idPatient',
+    allowNull: false
+  },
   as: 'patient'
 })
 
 MedicalAppointment.belongsTo(Doctor, {
-  foreignKey: 'idDoctor',
+  foreignKey: {
+    name: 'idDoctor',
+    allowNull: false
+  },
   as: 'doctorAppointments'
 })
 
 MedicalAppointment.belongsTo(Patient, {
-  foreignKey: 'idPatient',
+  foreignKey: {
+    name: 'idPatient',
+    allowNull: false
+  },
   as: 'patientAppointments'
 })
 

@@ -1,7 +1,7 @@
 import { DataTypes, UUIDV4 } from 'sequelize'
 import sequelize from '../database/startDb.mjs'
 
-const Availabity = sequelize.define('availabity', {
+const Availability = sequelize.define('availabity', {
   idAvailabity: {
     type: DataTypes.UUID,
     defaultValue: UUIDV4,
@@ -21,4 +21,4 @@ const Availabity = sequelize.define('availabity', {
   }
 })
 
-export default Availabity
+export default Availability
