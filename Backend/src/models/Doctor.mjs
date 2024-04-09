@@ -1,5 +1,7 @@
 import { DataTypes } from 'sequelize'
 import sequelize from '../database/startDb.mjs'
+import MedicalSpeciality from './MedicalSpeciality.mjs'
+import Availabity from './Availabity.mjs'
 
 const Doctor = sequelize.define('doctor',{
   idDoctor: {
@@ -38,6 +40,16 @@ const Doctor = sequelize.define('doctor',{
     type: DataTypes.STRING,
     defaultValue: "doctor",
   }
+})
+
+Doctor.belongsTo(MedicalSpeciality, {
+  foreignKey: 'idMedicalSpeciality',
+  as: 'medical_speciality'
+})
+
+Doctor.belongsTo(Availabity, {
+  foreignKey: 'idAvailabity',
+  as: 'availabity'
 })
 
 export default Doctor

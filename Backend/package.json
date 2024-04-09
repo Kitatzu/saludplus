@@ -16,5 +16,8 @@
     "pg": "^8.11.4",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
   }
 }
