@@ -3,7 +3,7 @@ import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 export const getMedicalSpeciality = async (req, res) => {
   try {
     const speciality = await MedicalSpeciality.findAll();
-    res.status(200).json({
+    res.json({
       success: true,
       data: speciality,
     });

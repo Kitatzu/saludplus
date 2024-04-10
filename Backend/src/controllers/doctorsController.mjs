@@ -25,7 +25,7 @@ export const getDoctors = async (req, res) => {
 export const registerDoctor = async (req, res) => {
   // TODO: Add new doctor to DB
   try {
-    const { first_name, last_name, dni, registration, email, password } =
+    const { first_name, last_name, dni, registration, email, password, rol, idMedicalSpeciality } =
       req.body;
     const doctor = await Doctor.create({
       first_name,
@@ -33,7 +33,9 @@ export const registerDoctor = async (req, res) => {
       dni,
       registration,
       email,
+      rol,
       password: await bcrypt.hash(password, 10),
+      idMedicalSpeciality
     });
     res.status(201).json({
       success: true,
