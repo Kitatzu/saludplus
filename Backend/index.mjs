@@ -15,7 +15,7 @@ app.use(router);
 const PORT = 3001 || process.env.PORT;
 
 sequelize
-  .sync({ alter: true }) // Utiliza { force: true } solo en desarrollo si quieres recrear tablas
+  .sync({ force: true }) // Utiliza { force: true } solo en desarrollo si quieres recrear tablas
   .then(() => {
     console.log("Base de datos sincronizada correctamente");
     app.listen(PORT, () => {
