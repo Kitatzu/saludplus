@@ -1,6 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import Doctor from "../models/Doctor.mjs";
+import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
 export const getDoctors = async (req, res) => {
   // TODO: Get all doctors from DB
@@ -25,8 +26,28 @@ export const getDoctors = async (req, res) => {
 export const registerDoctor = async (req, res) => {
   // TODO: Add new doctor to DB
   try {
-    const { first_name, last_name, dni, registration, email, password, rol, idMedicalSpeciality } =
-      req.body;
+    const {
+      first_name,
+      last_name,
+      dni,
+      registration,
+      email,
+      password,
+      rol,
+      speciality,
+    } = req.body;
+
+    const findSpeciality = await MedicalSpeciality.findOne({
+      where: { speciality: speciality },
+    });
+
+    if (!findSpeciality) {
+      return res.status(404).json({
+        success: false,
+        message: "Medical Speciality not founded",
+      });
+    }
+
     const doctor = await Doctor.create({
       first_name,
       last_name,
@@ -35,7 +56,7 @@ export const registerDoctor = async (req, res) => {
       email,
       rol,
       password: await bcrypt.hash(password, 10),
-      idMedicalSpeciality
+      idMedicalSpeciality: findSpeciality.idMedicalSpeciality,
     });
     res.status(201).json({
       success: true,
