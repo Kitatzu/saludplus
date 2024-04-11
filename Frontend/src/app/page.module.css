@@ -1,12 +1,26 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  background-image: url("../../public/Group\ 9.png");
+  background-size: cover;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+/*
 .description {
   display: inherit;
   justify-content: inherit;
@@ -108,6 +122,10 @@
 .logo {
   position: relative;
 }
+*/
+
+
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
