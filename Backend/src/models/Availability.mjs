@@ -1,5 +1,6 @@
 import { DataTypes, UUIDV4 } from 'sequelize'
 import sequelize from '../database/startDb.mjs'
+import Doctor from './Doctor.mjs'
 
 const Availability = sequelize.define('availabity', {
   idAvailabity: {
@@ -19,6 +20,14 @@ const Availability = sequelize.define('availabity', {
     type: DataTypes.TIME,
     allowNull: false
   }
+})
+
+Availability.belongsTo(Doctor, {
+  foreignKey: {
+    name: 'idDoctor',
+    allowNull: false
+  },
+  as: 'doctors'
 })
 
 export default Availability
