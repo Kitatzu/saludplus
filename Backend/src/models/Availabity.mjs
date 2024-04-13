@@ -19,6 +19,12 @@ const Availabity = sequelize.define('availabity', {
     type: DataTypes.TIME,
     allowNull: false
   }
+}, {
+  indexes: [{
+    unique: true,
+    name: 'unique_availability',
+    fields: ['idDoctor', 'date', 'start_time', 'end_time']
+  }]
 })
 
 export default Availabity

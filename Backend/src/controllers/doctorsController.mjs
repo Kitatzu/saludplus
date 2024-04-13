@@ -25,8 +25,28 @@ export const getDoctors = async (req, res) => {
 export const registerDoctor = async (req, res) => {
   // TODO: Add new doctor to DB
   try {
-    const { first_name, last_name, dni, registration, email, password } =
-      req.body;
+    const {
+      first_name,
+      last_name,
+      dni,
+      registration,
+      email,
+      password,
+      rol,
+      idMedicalSpeciality
+    } = req.body;
+
+    const findSpeciality = await MedicalSpeciality.findByPk(idMedicalSpeciality);
+
+    console.log(findSpeciality)
+
+    if (!findSpeciality) {
+      return res.status(404).json({
+        success: false,
+        message: "Medical Speciality not founded",
+      });
+    }
+
     const doctor = await Doctor.create({
       first_name,
       last_name,
