@@ -1,5 +1,4 @@
 import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
-import sequelize from "./startDb.mjs";
 
 export const medicalSpecialitySeed = async () => {
   try {

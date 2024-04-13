@@ -34,12 +34,12 @@ export const registerDoctor = async (req, res) => {
       email,
       password,
       rol,
-      speciality,
+      idMedicalSpeciality
     } = req.body;
 
-    const findSpeciality = await MedicalSpeciality.findOne({
-      where: { speciality: speciality },
-    });
+    const findSpeciality = await MedicalSpeciality.findByPk(idMedicalSpeciality);
+
+    console.log(findSpeciality)
 
     if (!findSpeciality) {
       return res.status(404).json({
