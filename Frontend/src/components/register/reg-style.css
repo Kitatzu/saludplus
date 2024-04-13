@@ -1,0 +1,69 @@
+.register__container{
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    padding: 2rem 6rem;
+    flex-direction: column;
+}
+
+.form__container{
+    display: grid;
+    grid-template-columns: 15rem 15rem;
+    grid-column-gap: 2.5rem;
+    margin-top: 1rem;
+}
+
+.form__container__doctor{
+    display: grid;
+    grid-template-columns: 15rem 15rem 15rem;
+    grid-column-gap: 2.5rem;
+    margin-top: 1rem;
+}
+
+.input__container{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+
+    & input{
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid;
+        margin-top: 0.5rem;
+        background: transparent;
+        color: black;
+    }
+
+    & #date{
+        background: #e2e6e6;
+    }
+
+    & select{
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid;
+        margin-top: 0.5rem;
+        background: transparent;
+        color: black;
+    }
+}
+
+.buttons__form{
+    display: grid;
+    grid-template-columns: 10rem 10rem;
+    grid-template-rows: 3rem 3rem;
+    grid-column-gap: 0.5rem;
+    margin-top: 1rem;
+    grid-column-gap: 8rem;
+
+    & button{
+        width: 15rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: none;
+        margin-top: 0.5rem;
+        background: #d9d9d9;
+        color: black;
+    }
+}
+

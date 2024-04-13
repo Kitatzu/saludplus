@@ -1,12 +1,12 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/navbar/Navbar';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "MediPlus",
-  description: "App medicalCare",
+  title: 'MediPlus',
+  description: 'App medicalCare',
 };
 
 export default function RootLayout({ children }) {

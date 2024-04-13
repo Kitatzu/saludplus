@@ -1,6 +1,6 @@
-import "./hero-style.css";
+import './hero-style.css';
 
-export default function Hero() {
+export const Hero = () => {
   return (
     <div className="main">
       <h1>Autogestion de turnos medicos</h1>
@@ -11,4 +11,4 @@ export default function Hero() {
       </div>
     </div>
   );
-}
+};
