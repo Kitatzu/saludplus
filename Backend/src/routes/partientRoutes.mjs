@@ -10,11 +10,12 @@ import {
 
 const router = express.Router();
 
-router.get("/patients", getPatients);
-router.post("/patients/register", registerPatient);
-router.get("/patients/login", loginPatient);
-router.get("/patients/:id", getPatientById);
-router.delete("/patients/:id", deletePatient);
-router.put("/patients/:id", updatePatient);
+router
+  .get("/patients", getPatients)
+  .post("/patients/register", registerPatient)
+  .get("/patients/login", loginPatient)
+  .get("/patients/:id", getPatientById)
+  .delete("/patients/:id", deletePatient)
+  .put("/patients/:id", updatePatient);
 
 export default router;

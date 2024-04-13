@@ -1,7 +1,8 @@
 import { DataTypes, UUIDV4 } from 'sequelize'
 import sequelize from '../database/startDb.mjs'
+import Doctor from './Doctor.mjs'
 
-const Availabity = sequelize.define('availabity', {
+const Availability = sequelize.define('availabity', {
   idAvailabity: {
     type: DataTypes.UUID,
     defaultValue: UUIDV4,
@@ -27,4 +28,12 @@ const Availabity = sequelize.define('availabity', {
   }]
 })
 
-export default Availabity
+Availability.belongsTo(Doctor, {
+  foreignKey: {
+    name: 'idDoctor',
+    allowNull: false
+  },
+  as: 'doctors'
+})
+
+export default Availability

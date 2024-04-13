@@ -22,7 +22,7 @@ export const registerPatient = async (req, res) => {
   // TODO: Add new patient to DB
   try {
     const {
-      firs_name,
+      first_name,
       last_name,
       dni,
       birthdate,
@@ -31,10 +31,10 @@ export const registerPatient = async (req, res) => {
       direction,
       email,
       password,
-      rol,
     } = req.body;
+
     const patient = await Patient.create({
-      firs_name,
+      first_name,
       last_name,
       dni,
       birthdate,
@@ -43,7 +43,6 @@ export const registerPatient = async (req, res) => {
       direction,
       email,
       password: await bcrypt.hash(password, 10),
-      rol,
     });
     res.status(200).json({
       success: true,
@@ -98,12 +97,15 @@ export const loginPatient = async (req, res) => {
 export const getPatientById = async (req, res) => {
   // TODO: Get patient from DB
   try {
-    const { id } = res.params;
-    const patient = await Patient.findByPk(id, {
-      attributes: {
-        exclude: ["password"],
-      },
-    });
+    const { idPatient } = req.params;
+    const patient = await Patient.findOne(
+      { where: { idPatient: idPatient } },
+      {
+        attributes: {
+          exclude: ["password"],
+        },
+      }
+    );
     res.status(200).json({
       success: true,
       data: patient,
@@ -117,15 +119,15 @@ export const getPatientById = async (req, res) => {
     });
   }
 };
-export const deletePatient = (req, res) => {
+export const deletePatient = async (req, res) => {
   // TODO: Delete patient from DB
   try {
-    const { id } = res.params;
-    Patient.destroy({
-      where: {
-        id: id,
-      },
-    });
+    const { idPatient } = req.params;
+
+    const findPatient = await Patient.findOne({ where: idPatient });
+
+    findPatient.destroy();
+
     res.status(200).json({
       success: true,
       message: "Patient deleted successfully",
@@ -139,12 +141,13 @@ export const deletePatient = (req, res) => {
   }
 };
 
-export const updatePatient = (req, res) => {
+export const updatePatient = async (req, res) => {
   // TODO: Update patient in DB
   try {
-    const { id } = req.params;
+    const { idPatient } = req.params;
+
     const {
-      firs_name,
+      first_name,
       last_name,
       dni,
       birthdate,
@@ -153,29 +156,24 @@ export const updatePatient = (req, res) => {
       direction,
       email,
       password,
-      rol,
     } = req.body;
-    Patient.update(
-      {
-        firs_name,
-        last_name,
-        dni,
-        birthdate,
-        gender,
-        blood_type,
-        direction,
-        email,
-        password,
-        rol,
-      },
-      {
-        where: {
-          id: id,
-        },
-      }
-    );
+
+    const findPatient = await Patient.findOne({ where: idPatient });
+
+    await findPatient.update({
+      first_name,
+      last_name,
+      dni,
+      birthdate,
+      gender,
+      blood_type,
+      direction,
+      email,
+      password,
+    });
     res.status(200).json({
       success: true,
+      data: findPatient,
       message: "Patient updated successfully",
     });
   } catch (error) {

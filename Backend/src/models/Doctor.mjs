@@ -1,13 +1,12 @@
-import { DataTypes } from 'sequelize'
-import sequelize from '../database/startDb.mjs'
-import MedicalSpeciality from './MedicalSpeciality.mjs'
-import Availabity from './Availabity.mjs'
+import { DataTypes } from "sequelize";
+import sequelize from "../database/startDb.mjs";
+import MedicalSpeciality from "./MedicalSpeciality.mjs";
 
-const Doctor = sequelize.define('doctor',{
+const Doctor = sequelize.define("doctor", {
   idDoctor: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
-    primaryKey: true
+    primaryKey: true,
   },
   first_name: {
     type: DataTypes.STRING,
@@ -39,17 +38,15 @@ const Doctor = sequelize.define('doctor',{
   rol: {
     type: DataTypes.STRING,
     defaultValue: "doctor",
-  }
-})
+  },
+});
 
 Doctor.belongsTo(MedicalSpeciality, {
-  foreignKey: 'idMedicalSpeciality',
+  foreignKey: {
+    name: 'idMedicalSpeciality',
+    allowNull: false
+  },
   as: 'medical_speciality'
 })
 
-Doctor.belongsTo(Availabity, {
-  foreignKey: 'idAvailabity',
-  as: 'availabity'
-})
-
-export default Doctor
+export default Doctor;

@@ -1,6 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import Doctor from "../models/Doctor.mjs";
+import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
 export const getDoctors = async (req, res) => {
   // TODO: Get all doctors from DB
@@ -53,7 +54,9 @@ export const registerDoctor = async (req, res) => {
       dni,
       registration,
       email,
+      rol,
       password: await bcrypt.hash(password, 10),
+      idMedicalSpeciality: findSpeciality.idMedicalSpeciality,
     });
     res.status(201).json({
       success: true,
@@ -109,12 +112,15 @@ export const loginDoctor = async (req, res) => {
 export const getDoctorById = async (req, res) => {
   // TODO: Get doctor from DB
   try {
-    const { id } = req.params;
-    const doctor = await Doctor.findByPk(id, {
-      attributes: {
-        exclude: ["password", "createdAt", "updatedAt"],
-      },
-    });
+    const { idDoctor } = req.params;
+    const doctor = await Doctor.findOne(
+      { where: idDoctor },
+      {
+        attributes: {
+          exclude: ["password", "createdAt", "updatedAt"],
+        },
+      }
+    );
     res.status(200).json({
       success: true,
       data: doctor,
@@ -124,11 +130,14 @@ export const getDoctorById = async (req, res) => {
   }
 };
 
-export const deleteDoctor = (req, res) => {
+export const deleteDoctor = async (req, res) => {
   // TODO: Delete doctor from DB
   try {
-    const { id } = req.params;
-    Doctor.destroy({ where: { id } });
+    const { idDoctor } = req.params;
+    const findDoctor = await Doctor.findOne({ where: idDoctor });
+
+    await findDoctor.destroy();
+
     res.status(200).json({
       success: true,
       message: "Doctor deleted successfully",
@@ -138,26 +147,34 @@ export const deleteDoctor = (req, res) => {
   }
 };
 
-export const updateDoctor = (req, res) => {
+export const updateDoctor = async (req, res) => {
   // TODO: Update doctor in DB
   try {
-    const { id } = req.params;
+    const { idDoctor } = req.params;
     const { first_name, last_name, dni, registration, email } = req.body;
-    Doctor.update(
-      {
-        first_name,
-        last_name,
-        dni,
-        registration,
-        email,
-      },
-      { where: { id } }
-    );
+
+    const findDoctor = await Doctor.findOne({ where: idDoctor });
+    if (!findDoctor) {
+      return res.status(404).json({
+        success: false,
+        message: "Doctor not founded",
+      });
+    }
+
+    findDoctor.update({
+      first_name,
+      last_name,
+      dni,
+      registration,
+      email,
+    });
     res.status(200).json({
       success: true,
       message: "Doctor updated successfully",
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 // doctorsRouter.get("/:id/patients", (req, res) => {
