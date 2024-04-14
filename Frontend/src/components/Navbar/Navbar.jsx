@@ -8,7 +8,6 @@ export default function Navbar() {
       <p>Servicios</p>
       <p>Ingresar</p>
       <p>Registrase</p>
-      <img src="/menu.svg" className="menu" />
     </nav>
   );
 }

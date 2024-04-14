@@ -17,6 +17,8 @@ export default function RootLayout({ children }) {
           <Navbar />
         </header>
         {children}
+        <img src="/Icon-chatbot.svg" className="chat-bot"/>
+
       </body>
     </html>
   );
