@@ -9,10 +9,16 @@
   margin-left: 20px;
   color: white;
   padding-right: 30px;
-  font-size: 20px;
+  font-size: 17px;
+  transition: color 0.5s;
+}
+
+.navBar p:hover {
+    color: #74CEAA; /**#D8C5F7 #3E1C76;**/
 }
 
 .chat-bot {
+  cursor: pointer;
   width: 110px;
   height: 80;
   color: black;

@@ -33,7 +33,7 @@ video {
   justify-content: center;
   align-items: left;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin: 10rem;
 }
 
@@ -41,7 +41,7 @@ video {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 55%;
 }
 
 .button {
@@ -54,16 +54,32 @@ video {
   font-size: 20px;
 }
 
+/**.button:hover {
+  background-color: #B99AEE;
+}**/
+
 .button-1 {
   background: #7a52bc;
   color: white;
   cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.button-1:hover {
+  color: #7A52BC;
+  background-color: #74CEAA;/**#e1d3f9;**/
 }
 
 .button-2 {
   cursor: pointer;
   background: #e1d3f9;
   color: #7a52bc;
+  transition: background-color 0.6s;
+}
+
+.button-2:hover {
+  color: white;
+  background-color: #74CEAA; /**#7A52BC;**/
 }
 
 .upper {
