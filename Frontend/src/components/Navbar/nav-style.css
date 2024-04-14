@@ -1,0 +1,36 @@
+.navBar{
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navBar p {
+  margin-left: 20px;
+  color: white;
+  padding-right: 30px;
+  font-size: 20px;
+}
+
+.chat-bot {
+  width: 110px;
+  height: 80;
+  color: black;
+  padding: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px; 
+  z-index: 9999;
+}
+
+.logo{
+  width: 180px;
+  height: 80px;
+  margin-right: auto;
+  padding-left: 30px;
+}
+
+.menu{
+  align-items: center;
+  margin-left: 10px;
+}
