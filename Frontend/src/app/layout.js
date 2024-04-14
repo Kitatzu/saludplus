@@ -5,7 +5,7 @@ import Navbar from '@/components/navbar/Navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'MediPlus',
+  title: 'SaludPlus',
   description: 'App medicalCare',
 };
 

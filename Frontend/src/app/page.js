@@ -5,9 +5,9 @@ import { PatientsRegister } from '@/components/register/PatientsRegister';
 export default function Home() {
   return (
     <>
-      {/* <Hero /> */}
-      <PatientsRegister />
-      <DoctorsRegister />
+      <Hero />  
+      {/* <PatientsRegister />
+      <DoctorsRegister /> */}
     </>
   );
 }

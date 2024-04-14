@@ -1,10 +1,12 @@
 .navBar{
   display: flex;
   align-items:center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .navBar p {
-  margin-left: 10px;
+  margin-left: 20px;
   color: white;
   padding-right: 30px;
   font-size: 20px;
