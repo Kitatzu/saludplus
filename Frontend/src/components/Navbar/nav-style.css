@@ -1,6 +1,6 @@
-.navBar{
+.navBar {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
 }
@@ -19,18 +19,18 @@
   padding: 20px;
   position: fixed;
   bottom: 20px;
-  right: 20px; 
+  right: 20px;
   z-index: 9999;
 }
 
-.logo{
+.logo {
   width: 180px;
   height: 80px;
   margin-right: auto;
   padding-left: 30px;
 }
 
-.menu{
+.menu {
   align-items: center;
   margin-left: 10px;
 }

@@ -46,27 +46,29 @@ video {
 
 .button {
   margin: 0 2rem;
-  width: 300px; 
+  width: 300px;
   height: 4rem;
   gap: 10px;
   border-radius: 77.5px;
-  border:#7A52BC;
+  border: #7a52bc;
   font-size: 20px;
 }
 
 .button-1 {
-  background: #7A52BC;
+  background: #7a52bc;
   color: white;
+  cursor: pointer;
 }
 
 .button-2 {
-  background: #E1D3F9;
-  color: #7A52BC;
+  cursor: pointer;
+  background: #e1d3f9;
+  color: #7a52bc;
 }
 
 .upper {
-  display: block; 
-  margin-bottom: -20px; 
+  display: block;
+  margin-bottom: -20px;
   font-weight: bold;
 }
 
@@ -179,8 +181,6 @@ video {
   position: relative;
 }
 */
-
-
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
