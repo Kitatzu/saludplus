@@ -1,82 +1,107 @@
+import Image from 'next/image';
 import './reg-style.css';
 
 export const DoctorsRegister = () => {
   return (
-    <section className='container__register'>
-      <section className="register__container">
-      <h2>Registro de profesionales</h2>
+    <section className="container__register">
+      <section className="register__container__doctor">
+        <section className="register__container">
+          <h2>Registro de profesionales</h2>
 
-      <form>
-        <div className='form__container__doctor'>
-          <div className="input__container">
-            <label htmlFor="firstName">Nombre*</label>
-            <input type="text" id="firstName"/>
-          </div>
+          <form>
+            <div className="form__container">
+              <div className="input__container">
+                <input type="text" id="firstName" required />
+                <span>Nombre*</span>
+              </div>
 
-          <div className="input__container">
-            <label htmlFor="lastName">Apellido*</label>
-            <input type="text" id="lastName" />
-          </div>
+              <div className="input__container">
+                <input type="text" id="lastName" required />
+                <span>Apellido*</span>
+              </div>
 
+              <div className="input__container">
+                <input
+                  type="date"
+                  id="date"
+                  min="1981-01-01"
+                  max="2024-04-30"
+                  required
+                />
+                <span className="date">Fecha de nacimiento*</span>
+              </div>
 
-          <div className="input__container">
-            <label htmlFor="date">Fecha de nacimiento*</label>
-            <input type="date" id="date"/>
-          </div>
+              <div className="input__container">
+                <label htmlFor="typeId">Tipo de identificación*</label>
+                <select id="typeId">
+                  <option value="1">DNI</option>
+                  <option value="2">Carnet de Extranjería</option>
+                  <option value="3">Pasaporte</option>
+                </select>
+              </div>
+              <div className="input__container">
+                <input type="text" id="identification" required />
+                <span>N° identificación</span>
+              </div>
+              <div className="input__container">
+                <input type="text" id="gender" required />
+                <span>Género*</span>
+              </div>
 
-          <div className="input__container">
-            <label htmlFor="typeId">Tipo de identificación*</label>
-            <select id="typeId">
-              <option value="1">DNI</option>
-              <option value="2">Carnet de Extranjería</option>
-              <option value="3">Pasaporte</option>
-            </select>
-          </div>
-          <div className="input__container">
-            <label htmlFor="identification">Número de identificación*</label>
-            <input type="text" id="identification" placeholder="Número de identificación" />
-          </div>
-          <div className="input__container">
-            <label htmlFor="gender">Género*</label>
-            <input type="text" id="gender" />
-          </div>
+              <div className="input__container">
+                <input type="text" id="email" required />
+                <span>E-mail*</span>
+              </div>
+              <div className="input__container">
+                <input type="text" id="email-repeat" required />
+                <span>Repetir E-mail*</span>
+              </div>
 
-          <div className="input__container">
-            <label htmlFor="email">E-mail*</label>
-            <input type="text" id="email" />
-          </div>
-          <div className="input__container">
-            <label htmlFor="email">Repetir E-mail*</label>
-            <input type="text" id="email" />
-          </div>
+              <div className="input__container">
+                <input type="text" id="phone" required />
+                <span>Teléfono*</span>
+              </div>
 
-          <div className="input__container">
-            <label htmlFor="phone">Teléfono*</label>
-            <input type="text" id="phone" />
-          </div>
+              <div className="input__container">
+                <input type="password" id="password" required />
+                <span>Contraseña*</span>
+              </div>
+              <div className="input__container">
+                <input type="password" id="password" required />
+                <span>Rep contraseña*</span>
+              </div>
 
-          <div className="input__container">
-            <label htmlFor="password">Contraseña*</label>
-            <input type="password" id="password" />
-          </div>
-          <div className="input__container">
-            <label htmlFor="password">Repetir Contraseña*</label>
-            <input type="password" id="password" />
-          </div>
-
-          
-        </div>
-        <div className='buttons__container'>
-          <div className="buttons__form">
-            <button type="submit">Enviar</button>
-            <button >Cancelar</button>
-          </div>
-        </div>
-      </form>
+              <div className="input__container">
+                <label htmlFor="specialty-dropdown">Especialidad*</label>
+                <select id="specialty-dropdown">
+                  <option value="1">Cardiología</option>
+                  <option value="2">Dermatología</option>
+                  <option value="3">Ginecología</option>
+                </select>
+              </div>
+              <div className="input__container">
+                <input type="text" id="specialty" required />
+                <span>N° de Matricula*</span>
+              </div>
+            </div>
+            <div className="buttons__container">
+              <div className="buttons__form">
+                <button type="submit">Enviar</button>
+                <button>Cancelar</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </section>
+      <section className="img__container__doctor">
+        <Image
+          src="/images/doctors-register.jpg"
+          alt="doctor"
+          width={500}
+          height={500}
+        />
+        <div className="cape"></div>
+      </section>
     </section>
-    <section>
-      
-    </section>
-    </section>
-  )
-}
+  );
+};

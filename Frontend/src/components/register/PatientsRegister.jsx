@@ -38,8 +38,8 @@ export const PatientsRegister = () => {
             </div>
 
             <div className="input__container">
-              <label htmlFor="date">Fecha de nacimiento*</label>
-              <input type="date" id="date" required/>
+              <input type="date" id="date" min="1981-01-01" max="2024-04-30" required/>
+              <span className='date'>Fecha de nacimiento*</span>
             </div>
 
             <div className="input__container">
@@ -79,7 +79,7 @@ export const PatientsRegister = () => {
         </form>
         </div>
       </section>
-      <section className="img__container">
+      <section className="img__container__patient">
         <Image src="/images/patients-register.jpg" alt="doctor" width={500} height={500} />
         <div className="cape"></div>
       </section>
