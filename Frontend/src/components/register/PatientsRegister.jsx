@@ -7,7 +7,7 @@ export const PatientsRegister = () => {
   }
 
   return (
-    <section className='container'>
+    <section className='container__register'>
       <section className="register__container__patient">
         <div className='register__container'>
         <h2>Registro de pacientes</h2>

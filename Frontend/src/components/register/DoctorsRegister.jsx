@@ -2,7 +2,7 @@ import './reg-style.css';
 
 export const DoctorsRegister = () => {
   return (
-    <section className='container'>
+    <section className='container__register'>
       <section className="register__container">
       <h2>Registro de profesionales</h2>
 
