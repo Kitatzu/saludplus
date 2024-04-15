@@ -39,8 +39,6 @@ export const registerDoctor = async (req, res) => {
 
     const findSpeciality = await MedicalSpeciality.findByPk(idMedicalSpeciality);
 
-    console.log(findSpeciality)
-
     if (!findSpeciality) {
       return res.status(404).json({
         success: false,
