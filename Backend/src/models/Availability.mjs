@@ -1,11 +1,10 @@
-import { DataTypes, UUIDV4 } from 'sequelize'
+import { DataTypes } from 'sequelize'
 import sequelize from '../database/startDb.mjs'
-import Doctor from './Doctor.mjs'
 
 const Availability = sequelize.define('availabity', {
   idAvailabity: {
     type: DataTypes.UUID,
-    defaultValue: UUIDV4,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true
   },
   date: {
@@ -19,6 +18,10 @@ const Availability = sequelize.define('availabity', {
   end_time: {
     type: DataTypes.TIME,
     allowNull: false
+  },
+  idDoctor: {
+    type: DataTypes.UUID,
+    allowNull: false
   }
 }, {
   indexes: [{
@@ -28,12 +31,5 @@ const Availability = sequelize.define('availabity', {
   }]
 })
 
-Availability.belongsTo(Doctor, {
-  foreignKey: {
-    name: 'idDoctor',
-    allowNull: false
-  },
-  as: 'doctors'
-})
 
 export default Availability

@@ -1,21 +1,15 @@
 import Availability from "../models/Availability.mjs"
-import bcrypt from 'bcrypt'
 import Doctor from "../models/Doctor.mjs"
 
-export const getAvailabilities = async (req, res) => {
+export const getAllAvailability = async (req, res) => {
   try {
-    const Availabilities = await Availability.findAll({
-      include: [{
-        model: Doctor,
-        as: 'doctors'
-      }]
-    })
+    const availability = await Availability.findAll()
 
-    if (Availabilities.length === 0) {
-      return res.status(404).json({ message: 'data not found' })
+    if (availability.length === 0) {
+      return res.status(404).json({ message: 'data availability not found' })
     }
     return res.json({
-      data: Availabilities,
+      data: availability,
       message: 'Availability data successfully'
     })
   } catch (error) {
@@ -24,47 +18,78 @@ export const getAvailabilities = async (req, res) => {
     })
   }
 }
-export const getAvailabilitiesById = async (req, res) => {
-try {
-  console.log(req.params)
-  const { id } = req.params
-  const AvailabilityId = await Availability.findByPk(id)
-  
-  if(AvailabilityId === null) return res.status(400).json({ message: 'AvailabilityId not found' })
+export const getAvailabilityById = async (req, res) => {
+  try {
+    console.log(req.params)
+    const { id } = req.params
+    const availabilityId = await Availability.findByPk(id)
 
-  return res.json( {
-    data: AvailabilityId,
-    message: "Availability data successfully"
-  })
-} catch (error) {
-  return res.status(500).json({
-    message: error.message
-  })
-}
+    if (availabilityId === null) return res.status(400).json({ message: 'Availability not found' })
 
+    return res.json({
+      data: availabilityId,
+      message: "Availability data successfully"
+    })
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message
+    })
+  }
 
-}
-export const createAvailabilities = async (req, res) => {
- try {
-  const { date, start_time, end_time, idDoctor } = req.body
-  const Availabilities = await Availability.create({ date, start_time, end_time, idDoctor })
-
-  res.json({
-    data: Availabilities,
-    message: "Availability created successfully"
-  })
-
- } catch (error) {
-  res.status(500).json({
-    message: error.message
-  })
- }
-  
-  
-}
-export const updateAvailabilities = (req, res) => {
 
 }
-export const deleteAvailabilities = (req, res) => {
+export const createAvailability = async (req, res) => {
+  try {
+    const { date, start_time, end_time, idDoctor } = req.body
+    const availability = await Availability.create({ date, start_time, end_time, idDoctor })
 
+    res.json({
+      data: availability,
+      message: "Availability created successfully"
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    })
+  }
+}
+export const updateAvailability = async (req, res) => {
+  try {
+    const idAvailabity = req.params.id
+    const { date, start_time, end_time, idDoctor } = req.body
+
+    const availabilityById = await Availability.findByPk(idAvailabity)
+    if (availabilityById === null) return res.status(400).json({ message: 'Availability not found' })
+
+    const availability = await Availability.update({ date, start_time, end_time, idDoctor },
+      { where: { idAvailabity } })
+    if (availability === null) return res.status(400).json({ message: 'Availability not found' })
+
+    return res.json({
+      message: 'availability update successfully'
+    })
+
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message })
+
+  }
+
+}
+export const deleteAvailability = async (req, res) => {
+  try {
+    const idAvailabity = req.params.id;
+    const availability = await Availability.findByPk(idAvailabity);
+
+    if (availability === null) return res.status(400).json({ message: 'Availability not found' })
+
+    await availability.destroy();
+
+    res.json({
+      message: "Availability deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 }
