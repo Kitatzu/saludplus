@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getAllAvailability, createAvailability, updateAvailability, deleteAvailability, getAvailabilityById } from '../controllers/AvailabilitiesController.mjs'
+import { getAllAvailability, createAvailability, updateAvailability, deleteAvailability, getAvailabilityById } from '../controllers/availabilitiesController.mjs'
 
 const router = Router()
 

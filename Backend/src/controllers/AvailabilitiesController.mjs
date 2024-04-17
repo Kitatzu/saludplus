@@ -56,14 +56,14 @@ export const createAvailability = async (req, res) => {
 }
 export const updateAvailability = async (req, res) => {
   try {
-    const idAvailabity = req.params.id
+    const idAvailability = req.params.id
     const { date, start_time, end_time, idDoctor } = req.body
 
-    const availabilityById = await Availability.findByPk(idAvailabity)
+    const availabilityById = await Availability.findByPk(idAvailability)
     if (availabilityById === null) return res.status(400).json({ message: 'Availability not found' })
 
     const availability = await Availability.update({ date, start_time, end_time, idDoctor },
-      { where: { idAvailabity } })
+      { where: { idAvailability } })
     if (availability === null) return res.status(400).json({ message: 'Availability not found' })
 
     return res.json({
@@ -79,8 +79,8 @@ export const updateAvailability = async (req, res) => {
 }
 export const deleteAvailability = async (req, res) => {
   try {
-    const idAvailabity = req.params.id;
-    const availability = await Availability.findByPk(idAvailabity);
+    const idAvailability = req.params.id;
+    const availability = await Availability.findByPk(idAvailability);
 
     if (availability === null) return res.status(400).json({ message: 'Availability not found' })
 
