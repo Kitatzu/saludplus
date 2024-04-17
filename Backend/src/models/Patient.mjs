@@ -1,11 +1,11 @@
-import {DataTypes} from 'sequelize'
-import sequelize from '../database/startDb.mjs'
+import { DataTypes } from "sequelize";
+import sequelize from "../database/startDb.mjs";
 
-const Patient = sequelize.define('patient', {
+const Patient = sequelize.define("patient", {
   idPatient: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
-    primaryKey: true
+    primaryKey: true,
   },
   first_name: {
     type: DataTypes.STRING,
@@ -22,19 +22,15 @@ const Patient = sequelize.define('patient', {
   },
   birthdate: {
     type: DataTypes.DATEONLY,
-    allowNull: false
+    allowNull: false,
   },
-  gender: {
+  genre: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   blood_type: {
     type: DataTypes.STRING,
-    allowNull: false
-  },
-  direction: {
-    type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
@@ -45,10 +41,13 @@ const Patient = sequelize.define('patient', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  phone: {
+    type: DataTypes.INTEGER,
+  },
   rol: {
     type: DataTypes.STRING,
     defaultValue: "patient",
   },
-})
+});
 
-export default Patient
+export default Patient;

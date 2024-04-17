@@ -26,11 +26,11 @@ export const registerPatient = async (req, res) => {
       last_name,
       dni,
       birthdate,
-      gender,
+      genre,
       blood_type,
-      direction,
       email,
       password,
+      phone,
     } = req.body;
 
     const patient = await Patient.create({
@@ -38,11 +38,11 @@ export const registerPatient = async (req, res) => {
       last_name,
       dni,
       birthdate,
-      gender,
+      genre,
       blood_type,
-      direction,
       email,
       password: await bcrypt.hash(password, 10),
+      phone,
     });
     res.status(200).json({
       success: true,

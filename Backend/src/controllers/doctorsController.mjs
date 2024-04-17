@@ -29,15 +29,20 @@ export const registerDoctor = async (req, res) => {
     const {
       first_name,
       last_name,
+      birthdate,
       dni,
+      genre,
       registration,
       email,
       password,
+      phone,
       rol,
-      idMedicalSpeciality
+      speciality,
     } = req.body;
 
-    const findSpeciality = await MedicalSpeciality.findByPk(idMedicalSpeciality);
+    const findSpeciality = await MedicalSpeciality.findOne({
+      where: { speciality: speciality },
+    });
 
     if (!findSpeciality) {
       return res.status(404).json({
@@ -49,9 +54,12 @@ export const registerDoctor = async (req, res) => {
     const doctor = await Doctor.create({
       first_name,
       last_name,
+      birthdate,
       dni,
+      genre,
       registration,
       email,
+      phone,
       rol,
       password: await bcrypt.hash(password, 10),
       idMedicalSpeciality: findSpeciality.idMedicalSpeciality,
@@ -62,7 +70,7 @@ export const registerDoctor = async (req, res) => {
       message: "Doctor created successfully",
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: error.message,
       message: "Error registering doctor",
