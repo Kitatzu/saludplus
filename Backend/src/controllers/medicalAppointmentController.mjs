@@ -2,18 +2,9 @@ import MedicalAppointment from "../models/MedicalAppointment.mjs"
 
 export const createMedicalAppointment = async (req, res) => {
   try {
-    const {
-      date,
-      start_date,
-      end_time,
-      state,
-      idDoctor,
-      idPatient
-    } = req.body;
+    const { date, start_date, end_time, state, idDoctor, idPatient } = req.body
 
-
-    console.log(req.body)
-    const patient = await MedicalAppointment.create({
+    const medicalAppointment = await MedicalAppointment.create({
       date,
       start_date,
       end_time,
@@ -22,16 +13,15 @@ export const createMedicalAppointment = async (req, res) => {
       idPatient
     });
 
-    console.log(patient)
-    res.json({
-      data: patient,
+    res.status(201).json({
+      data: medicalAppointment,
       message: "medical appointment created successfully",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
       error: error.message,
-      message: "Error registering medical appointment",
+      message: "Error create medical appointment",
     });
   }
 };
