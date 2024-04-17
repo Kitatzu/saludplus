@@ -1,17 +1,19 @@
+"use client";
+import { useState } from "react";
 import "./nav-style.css";
 import Link from "next/link";
+import LoginModal from "../LoginModal/loginModal";
 
 export default function Navbar() {
-  const link = [
-    { name: "Inicio", href: "/" },
-    { name: "Servicios", href: "/" },
-    { name: "Ingresar", href: "#" },
-    { name: "Registrarse", href: "/register" },
-  ];
+  const [isOpen, setIsOpen] = useState(false); // Estado inicial: modal cerrado
 
-  const handle = () => {
-    console.log(link);
-  };
+  function handleOpenModal() {
+    setIsOpen(true); // Cambia isOpen a true para abrir el modal
+  }
+
+  function onClose() {
+    setIsOpen(false);
+  }
 
   return (
     <nav className="navBar">
@@ -23,7 +25,8 @@ export default function Navbar() {
         <p> Servicios </p>
       </Link>
       <Link href="/">
-        <p> Ingresar </p>
+        <p onClick={handleOpenModal}> Ingresar </p>
+        {isOpen && <LoginModal isOpen={isOpen} onClose={onClose} />}
       </Link>
       <Link href="/register">
         <p> Registrarse </p>
