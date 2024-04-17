@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize'
 import sequelize from '../database/startDb.mjs'
 
-const Availability = sequelize.define('availabity', {
-  idAvailabity: {
+const Availability = sequelize.define('availability', {
+  idAvailability: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true

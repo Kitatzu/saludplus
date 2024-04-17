@@ -1,4 +1,3 @@
-import sequelize from "../database/startDb.mjs"
 import Doctor from "./Doctor.mjs"
 import Availability from "./Availability.mjs"
 
