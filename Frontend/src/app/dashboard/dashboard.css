@@ -1,0 +1,21 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+
+  & div:first-child {
+    width: 20%;
+  }
+
+  & div:last-child {
+    width: 100%;
+  }
+}
+
+.page_container {
+  width: 100vw;
+  height: 100vh;
+}
