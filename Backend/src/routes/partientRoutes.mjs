@@ -13,7 +13,7 @@ const router = express.Router();
 router
   .get("/patients", getPatients)
   .post("/patients/register", registerPatient)
-  .get("/patients/login", loginPatient)
+  .post("/patients/login", loginPatient)
   .get("/patients/:id", getPatientById)
   .delete("/patients/:id", deletePatient)
   .put("/patients/:id", updatePatient);

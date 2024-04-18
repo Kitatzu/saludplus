@@ -2,7 +2,6 @@
 import Image from "next/image";
 import "./reg-style.css";
 import axios from "axios";
-import { axiosUser } from "@/utilities/axios";
 
 export const DoctorsRegister = () => {
   const handleSubmit = async (event) => {
