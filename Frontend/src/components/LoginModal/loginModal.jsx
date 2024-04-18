@@ -39,7 +39,7 @@ const LoginModal = ({ onClose }) => {
     // Renderiza el modal solo si isOpen es true
     <div className="modal-overlay" onClick={handleClickOutside}>
       <div className="modal">
-        <button className="close-button">X</button>
+        <button className="close-button" onClick={onClose}>X</button>
         <div className="logo_container">
           <img src="/Logo.png" alt="Logo Modal" />
         </div>
