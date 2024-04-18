@@ -1,3 +1,9 @@
-export default async function Dashboard() {
-  return <div></div>;
+import "./dashboard.css";
+
+export default function Dashboard() {
+  return (
+    <div className="page_container">
+      <h1> Home Dashboard</h1>
+    </div>
+  );
 }
