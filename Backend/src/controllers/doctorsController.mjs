@@ -1,4 +1,3 @@
-import express from "express";
 import bcrypt from "bcrypt";
 import Doctor from "../models/Doctor.mjs";
 import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
@@ -74,43 +73,6 @@ export const registerDoctor = async (req, res) => {
       success: false,
       error: error.message,
       message: "Error registering doctor",
-    });
-  }
-};
-
-export const loginDoctor = async (req, res) => {
-  // TODO: Login doctor
-  try {
-    const { email, password } = req.body;
-    const doctor = await Doctor.findOne({ where: { email } });
-    if (!doctor) {
-      return res.status(404).json({
-        success: false,
-        error: "Doctor not found",
-      });
-    }
-    const isMatch = await bcrypt.compare(password, doctor.password);
-    if (!isMatch) {
-      return res.status(401).json({
-        success: false,
-        error: "Incorrect password",
-      });
-    }
-    res.status(200).json({
-      success: true,
-      data: {
-        email: doctor.email,
-        first_name: doctor.first_name,
-        last_name: doctor.last_name,
-        dni: doctor.dni,
-        registration: doctor.registration,
-        rol: doctor.rol,
-      },
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error,
     });
   }
 };
