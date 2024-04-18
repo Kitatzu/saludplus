@@ -1,4 +1,4 @@
-.container {
+.dashboard_container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -11,6 +11,7 @@
   }
 
   & div:last-child {
+    z-index: 2;
     width: 100%;
   }
 }

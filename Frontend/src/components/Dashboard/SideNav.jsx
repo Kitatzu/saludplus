@@ -17,38 +17,36 @@ export const SideNav = () => {
       <div>
         <Link
           href="/dashboard/calendar"
-          className={`${pathname === "/dashboard/calendar" ? "active" : ""} `}
+          className={`link-nav ${
+            pathname === "/dashboard/calendar" ? "active" : ""
+          } `}
         >
-          <p>
-            <img src="/icons/Calendar.svg" alt="Calender" /> Turnos
-          </p>
+          <img src="/icons/Calendar.svg" alt="Calender" /> Turnos
         </Link>
         <Link
           href="/dashboard"
-          className={`${pathname === "/dashboard" ? "active" : ""} `}
+          className={`link-nav ${pathname === "/dashboard" ? "active" : ""} `}
         >
-          <p>
-            <img src="/icons/Bell.svg" alt="Bell" />
-            Notificaciones
-          </p>
+          <img src="/icons/Bell.svg" alt="Bell" />
+          Notificaciones
         </Link>
         <Link
           href="/dashboard/profile"
-          className={`${pathname === "/dashboard/profile" ? "active" : ""} `}
+          className={`link-nav ${
+            pathname === "/dashboard/profile" ? "active" : ""
+          } `}
         >
-          <p>
-            <img src="/icons/User.svg" alt="User" />
-            Perfil
-          </p>
+          <img src="/icons/User.svg" alt="User" />
+          Perfil
         </Link>
         <Link
           href="/dashboard/help"
-          className={`${pathname === "/dashboard/help" ? "active" : ""} `}
+          className={`link-nav ${
+            pathname === "/dashboard/help" ? "active" : ""
+          } `}
         >
-          <p>
-            <img src="/icons/Help.svg" alt="Help" />
-            Ayuda
-          </p>
+          <img src="/icons/Help.svg" alt="Help" />
+          Ayuda
         </Link>
       </div>
     </nav>

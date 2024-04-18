@@ -4,7 +4,7 @@ import "./dashboard.css";
 
 export default function Layout({ children }) {
   return (
-    <div className={`${robotoFont.className} container`}>
+    <div className={`${robotoFont.className} dashboard_container`}>
       <div>
         <SideNav />
       </div>
