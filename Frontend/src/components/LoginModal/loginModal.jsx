@@ -22,12 +22,7 @@ const LoginModal = ({ onClose }) => {
     };
 
     await axios
-      .get("http://localhost:3001/doctors/login", {
-        params: {
-          email: data.email,
-          password: data.password,
-        },
-      })
+      .post("http://localhost:3001/login", data)
       .then((response) => {
         router.push("/dashboard");
         onClose();

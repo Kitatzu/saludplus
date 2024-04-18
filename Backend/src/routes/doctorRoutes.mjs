@@ -2,7 +2,6 @@ import express from "express";
 import {
   getDoctors,
   registerDoctor,
-  loginDoctor,
   getDoctorById,
   deleteDoctor,
   updateDoctor,
@@ -13,7 +12,6 @@ const router = express.Router();
 //doctors routes
 router
   .get("/doctors", getDoctors)
-  .post("/doctors/login", loginDoctor)
   .get("/doctors/:id", getDoctorById)
   .post("/doctors/register", registerDoctor)
   .delete("/doctors/:id", deleteDoctor)
