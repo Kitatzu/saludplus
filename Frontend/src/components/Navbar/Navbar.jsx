@@ -24,10 +24,8 @@ export default function Navbar() {
       <Link href="/">
         <p> Servicios </p>
       </Link>
-      <Link href="/">
-        <p onClick={handleOpenModal}> Ingresar </p>
-        {isOpen && <LoginModal isOpen={isOpen} onClose={onClose} />}
-      </Link>
+      <p onClick={handleOpenModal}> Ingresar </p>
+      {isOpen && <LoginModal isOpen={isOpen} onClose={onClose} />}
       <Link href="/register">
         <p> Registrarse </p>
       </Link>
