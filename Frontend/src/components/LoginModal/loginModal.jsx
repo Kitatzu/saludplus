@@ -48,17 +48,19 @@ const LoginModal = ({ onClose }) => {
             <input
               type="text"
               id="email"
-              placeholder="CORREO ELECTRÓNICO"
               name="email"
+              required
             />
+            <span>Correo Electronico</span>
           </label>
           <label>
             <input
               type="password"
               id="password"
-              placeholder="CONTRASEÑA"
               name="password"
+              required
             />
+            <span>Contraseña</span>
           </label>
           <button type="submit" className="login_btn">
             Iniciar Sesión
