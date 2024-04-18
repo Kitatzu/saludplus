@@ -11,10 +11,11 @@
   padding-right: 30px;
   font-size: 17px;
   transition: color 0.5s;
+  cursor: pointer;
 }
 
 .navBar p:hover {
-    color: #74CEAA; /**#D8C5F7 #3E1C76;**/
+  color: #74ceaa; /**#D8C5F7 #3E1C76;**/
 }
 
 .chat-bot {
@@ -33,10 +34,9 @@
   transition: background-color 0.5s;
 
   &:hover {
-    background-color: #74CEAA; /**#D8C5F7 #3E1C76;**/
+    background-color: #74ceaa; /**#D8C5F7 #3E1C76;**/
   }
 }
-
 
 .logo {
   width: 180px;
