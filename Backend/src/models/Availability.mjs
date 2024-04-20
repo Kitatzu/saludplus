@@ -19,6 +19,11 @@ const Availability = sequelize.define('availability', {
     type: DataTypes.TIME,
     allowNull: false
   },
+  state: {
+    type: DataTypes.STRING,
+    allowNull:false,
+    defaultValue: 'disponible'
+  },
   idDoctor: {
     type: DataTypes.UUID,
     allowNull: false

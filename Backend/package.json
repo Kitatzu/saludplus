@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node --env-file=.env index.mjs",
-    "dev": "node   --env-file=.env index.mjs"
+    "dev": "node --env-file=.env index.mjs"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

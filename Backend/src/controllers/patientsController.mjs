@@ -2,14 +2,13 @@ import bcrypt from "bcrypt";
 import Patient from "../models/Patient.mjs";
 
 export const getPatients = async (req, res) => {
-  // TODO: Get all patients from DB
   try {
     const allPatients = await Patient.findAll({
       attributes: {
         exclude: ["password"],
       },
     });
-    res.status(200).json({
+    res.json({
       success: true,
       data: allPatients,
     });
@@ -19,7 +18,6 @@ export const getPatients = async (req, res) => {
 };
 
 export const registerPatient = async (req, res) => {
-  // TODO: Add new patient to DB
   try {
     const {
       first_name,
@@ -59,7 +57,6 @@ export const registerPatient = async (req, res) => {
 };
 
 export const loginPatient = async (req, res) => {
-  // TODO: Login patient
   try {
     const { email, password } = req.body;
     const patient = await Patient.findOne({
@@ -80,7 +77,7 @@ export const loginPatient = async (req, res) => {
         message: "Invalid password",
       });
     }
-    res.status(200).json({
+    res.json({
       success: true,
       data: patient,
       message: "User logged in successfully",
@@ -95,7 +92,6 @@ export const loginPatient = async (req, res) => {
 };
 
 export const getPatientById = async (req, res) => {
-  // TODO: Get patient from DB
   try {
     const { idPatient } = req.params;
     const patient = await Patient.findOne(
