@@ -1,13 +1,19 @@
-import { Router } from 'express'
-import { getAllAvailability, createAvailability, updateAvailability, deleteAvailability, getAvailabilityById } from '../controllers/availabilitiesController.mjs'
+import { Router } from "express";
+import {
+  getAllAvailability,
+  createAvailability,
+  updateAvailability,
+  deleteAvailability,
+  getAvailabilityById,
+} from "../controllers/availabilitiesController.mjs";
 
-const router = Router()
+const router = Router();
 
 router
-  .get('/availabilities', getAllAvailability)
-  .post('/availabilities', createAvailability)
-  .patch('/availabilities/:id', updateAvailability)
-  .delete('/availabilities/:id', deleteAvailability)
-  .get('/availabilities/:id', getAvailabilityById)
+  .get("/available", getAllAvailability)
+  .post("/available", createAvailability)
+  .patch("/available/:id", updateAvailability)
+  .delete("/available/:id", deleteAvailability)
+  .get("/available/:id", getAvailabilityById);
 
-  export default router
+export default router;

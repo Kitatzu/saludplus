@@ -1,8 +1,8 @@
-import MedicalAppointment from "../models/MedicalAppointment.mjs"
+import MedicalAppointment from "../models/MedicalAppointment.mjs";
 
 export const createMedicalAppointment = async (req, res) => {
   try {
-    const { date, start_date, end_time, state, idDoctor, idPatient } = req.body
+    const { date, start_date, end_time, state, idDoctor, idPatient } = req.body;
 
     const medicalAppointment = await MedicalAppointment.create({
       date,
@@ -10,7 +10,7 @@ export const createMedicalAppointment = async (req, res) => {
       end_time,
       state,
       idDoctor,
-      idPatient
+      idPatient,
     });
 
     res.status(201).json({
