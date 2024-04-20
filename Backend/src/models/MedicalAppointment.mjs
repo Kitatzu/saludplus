@@ -26,7 +26,7 @@ const MedicalAppointment = sequelize.define("medical_appointment", {
       },
     },
   },
-  start_date: {
+  start_time: {
     type: DataTypes.TIME,
     allowNull: false,
   },
@@ -37,6 +37,23 @@ const MedicalAppointment = sequelize.define("medical_appointment", {
   state: {
     type: DataTypes.STRING,
     allowNull: false,
+    defaultValue: 'generado'
+  },
+  idDoctor: {
+    type: DataTypes.UUID,
+    allowNull: false
+  },
+  idPatient: {
+    type: DataTypes.UUID,
+    allowNull: false
+  }
+}, {
+  indexes: [{
+    unique: true,
+    name: 'unique_medcial_appointment',
+    fields: ['idDoctor', 'idPatient', 'date', 'start_time', 'end_time']
+  }]
+})
   },
 });
 
