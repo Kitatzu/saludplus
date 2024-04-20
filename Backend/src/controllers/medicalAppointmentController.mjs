@@ -1,4 +1,4 @@
-import MedicalAppointment from "../models/MedicalAppointment.mjs"
+import MedicalAppointment from "../models/MedicalAppointment.mjs";
 
 export const createMedicalAppointment = async (req, res) => {
   try {
@@ -10,7 +10,7 @@ export const createMedicalAppointment = async (req, res) => {
       end_time,
       state,
       idDoctor,
-      idPatient
+      idPatient,
     });
 
     res.status(201).json({

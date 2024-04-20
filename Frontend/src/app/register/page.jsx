@@ -22,7 +22,7 @@ export default function Register() {
       <div>
         <p>
           ¿Ya estas registrado?
-          <a href="">
+          <a href="/login">
             <strong> Iniciar Sesión</strong>
           </a>
         </p>

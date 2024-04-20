@@ -1,16 +1,62 @@
-import express from "express";
 import bcrypt from "bcrypt";
 import Doctor from "../models/Doctor.mjs";
+import Availability from "../models/Availability.mjs";
 import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
 export const getDoctors = async (req, res) => {
   // TODO: Get all doctors from DB
   try {
-    const doctors = await Doctor.findAll({
-      attributes: {
-        exclude: ["password", "createdAt", "updatedAt"],
-      },
+    const { speciality } = req.query;
+
+    // Si no se proporciona una especialidad en la consulta
+    if (!speciality) {
+      let doctors = await Doctor.findAll({
+        include: [
+          { model: Availability, as: "available" },
+          {
+            model: MedicalSpeciality,
+            attributes: ["speciality"],
+            as: "speciality",
+          },
+        ],
+      });
+
+      if (!doctors || doctors.length === 0) {
+        return res.status(404).json({
+          success: false,
+          message: "Doctors not founded",
+        });
+      }
+
+      return res.status(200).json({
+        success: true,
+        data: doctors,
+      });
+    }
+
+    // Si se proporciona una especialidad en la consulta
+    let doctors = await Doctor.findAll({
+      include: [
+        {
+          model: Availability,
+          as: "available",
+        },
+        {
+          model: MedicalSpeciality,
+          attributes: ["speciality"],
+          as: "speciality",
+          where: { speciality: speciality },
+        },
+      ],
     });
+
+    if (!doctors || doctors.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: `Doctors not founded for speciality '${speciality}'`,
+      });
+    }
+
     res.status(200).json({
       success: true,
       data: doctors,
@@ -29,15 +75,20 @@ export const registerDoctor = async (req, res) => {
     const {
       first_name,
       last_name,
+      birthdate,
       dni,
+      genre,
       registration,
       email,
       password,
+      phone,
       rol,
-      idMedicalSpeciality
+      speciality,
     } = req.body;
 
-    const findSpeciality = await MedicalSpeciality.findByPk(idMedicalSpeciality);
+    const findSpeciality = await MedicalSpeciality.findOne({
+      where: { speciality: speciality },
+    });
 
     if (!findSpeciality) {
       return res.status(404).json({
@@ -49,9 +100,12 @@ export const registerDoctor = async (req, res) => {
     const doctor = await Doctor.create({
       first_name,
       last_name,
+      birthdate,
       dni,
+      genre,
       registration,
       email,
+      phone,
       rol,
       password: await bcrypt.hash(password, 10),
       idMedicalSpeciality: findSpeciality.idMedicalSpeciality,
@@ -62,47 +116,10 @@ export const registerDoctor = async (req, res) => {
       message: "Doctor created successfully",
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: error.message,
       message: "Error registering doctor",
-    });
-  }
-};
-
-export const loginDoctor = async (req, res) => {
-  // TODO: Login doctor
-  try {
-    const { email, password } = req.body;
-    const doctor = await Doctor.findOne({ where: { email } });
-    if (!doctor) {
-      return res.status(404).json({
-        success: false,
-        error: "Doctor not found",
-      });
-    }
-    const isMatch = await bcrypt.compare(password, doctor.password);
-    if (!isMatch) {
-      return res.status(401).json({
-        success: false,
-        error: "Incorrect password",
-      });
-    }
-    res.status(200).json({
-      success: true,
-      data: {
-        email: doctor.email,
-        first_name: doctor.first_name,
-        last_name: doctor.last_name,
-        dni: doctor.dni,
-        registration: doctor.registration,
-        rol: doctor.rol,
-      },
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error.message,
     });
   }
 };

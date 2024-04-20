@@ -1,19 +1,18 @@
-'use client'
+"use client";
 import LoginModal from "../LoginModal/loginModal";
 import "./hero-style.css";
 import Link from "next/link";
 import { useState } from "react";
 
 export const Hero = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsModalOpen(true);
+    setIsOpen(true);
   };
 
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const onClose = () => {
+    setIsOpen(false);
   };
   return (
     <div className="main">
@@ -31,13 +30,15 @@ export const Hero = () => {
       </div>
       <div className="buttons">
         <Link href="/">
-          <button className="button button-1" onClick={openModal}>Inicio Sesión</button>
+          <button className="button button-1" onClick={openModal}>
+            Inicio Sesión
+          </button>
+          {isOpen && <LoginModal isOpen={isOpen} onClose={onClose} />}
         </Link>
         <Link href="/register">
           <button className="button button-2">Crear Cuenta</button>
         </Link>
       </div>
-      <LoginModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };
