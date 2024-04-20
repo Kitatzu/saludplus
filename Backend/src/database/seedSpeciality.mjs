@@ -4,16 +4,16 @@ export const medicalSpecialitySeed = async () => {
   try {
     const specialitiesList = [
       {
-        speciality: "Cardiología",
+        speciality: "cardiologia",
         description:
           "Especialidad médica que se ocupa del diagnóstico y tratamiento de las enfermedades del corazón y del aparato circulatorio.",
       },
       {
-        speciality: "Clinico",
+        speciality: "clinico",
         description: "Especialidad médica que se ocupa de la medicina General",
       },
       {
-        speciality: "Traumatologia",
+        speciality: "traumatologia",
         description:
           "Especialidad médica que se ocupa del diagnóstico y tratamiento de patologias relacionadas con el sistema esqueletico",
       },

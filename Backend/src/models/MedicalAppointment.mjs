@@ -1,17 +1,30 @@
-import { DataTypes, UUIDV4 } from 'sequelize'
-import sequelize from "../database/startDb.mjs"
-import Patient from './Patient.mjs'
-import Doctor from './Doctor.mjs'
+import { DataTypes, UUIDV4 } from "sequelize";
+import sequelize from "../database/startDb.mjs";
+import Patient from "./Patient.mjs";
+import Doctor from "./Doctor.mjs";
 
-const MedicalAppointment = sequelize.define('medical_appointment', {
+const MedicalAppointment = sequelize.define("medical_appointment", {
   idMedicalAppointment: {
     type: DataTypes.UUID,
     defaultValue: UUIDV4,
-    primaryKey: true
+    primaryKey: true,
   },
   date: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      isInFuture(date) {
+        const currentDate = new Date();
+        const maxDate = new Date(
+          currentDate.getTime() + 60 * 24 * 60 * 60 * 1000
+        ); // 60 días en el futuro
+        if (new Date(date) < currentDate || new Date(date) > maxDate) {
+          throw new Error(
+            "La fecha seleccionada está fuera del rango permitido."
+          );
+        }
+      },
+    },
   },
   start_date: {
     type: DataTypes.TIME,
@@ -19,44 +32,44 @@ const MedicalAppointment = sequelize.define('medical_appointment', {
   },
   end_time: {
     type: DataTypes.TIME,
-    allowNull: false
+    allowNull: false,
   },
   state: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
-})
+    allowNull: false,
+  },
+});
 
 Doctor.hasMany(MedicalAppointment, {
   foreignKey: {
-    name: 'idDoctor',
-    allowNull: false
+    name: "idDoctor",
+    allowNull: false,
   },
-  as: 'doctor'
-})
+  as: "doctor",
+});
 
 Patient.hasMany(MedicalAppointment, {
   foreignKey: {
-    name: 'idPatient',
-    allowNull: false
+    name: "idPatient",
+    allowNull: false,
   },
-  as: 'patient'
-})
+  as: "patient",
+});
 
 MedicalAppointment.belongsTo(Doctor, {
   foreignKey: {
-    name: 'idDoctor',
-    allowNull: false
+    name: "idDoctor",
+    allowNull: false,
   },
-  as: 'doctorAppointments'
-})
+  as: "doctorAppointments",
+});
 
 MedicalAppointment.belongsTo(Patient, {
   foreignKey: {
-    name: 'idPatient',
-    allowNull: false
+    name: "idPatient",
+    allowNull: false,
   },
-  as: 'patientAppointments'
-})
+  as: "patientAppointments",
+});
 
-export default MedicalAppointment
+export default MedicalAppointment;

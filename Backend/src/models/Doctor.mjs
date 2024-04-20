@@ -53,7 +53,7 @@ const Doctor = sequelize.define("doctor", {
 
 Doctor.belongsTo(MedicalSpeciality, {
   foreignKey: "idMedicalSpeciality",
-  as: "medical_speciality",
+  as: "speciality",
 });
 
 export default Doctor;
