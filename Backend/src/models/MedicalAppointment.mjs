@@ -54,8 +54,6 @@ const MedicalAppointment = sequelize.define("medical_appointment", {
     fields: ['idDoctor', 'idPatient', 'date', 'start_time', 'end_time']
   }]
 })
-  },
-});
 
 Doctor.hasMany(MedicalAppointment, {
   foreignKey: {

@@ -31,7 +31,7 @@ const Availability = sequelize.define(
       type: DataTypes.UUID,
       allowNull: false,
     },
-  }
+  },
   {
     indexes: [
       {
