@@ -1,7 +1,14 @@
 import { Router } from "express";
-import { createMedicalAppointment } from "../controllers/medicalAppointmentController.mjs";
+import {
+  cancelAppoiment,
+  createMedicalAppointment,
+  getMedicalAppoiments,
+} from "../controllers/medicalAppointmentController.mjs";
 const router = Router();
 
-router.post("/appoiment", createMedicalAppointment);
+router
+  .get("/appoiment/", getMedicalAppoiments)
+  .post("/appoiment", createMedicalAppointment)
+  .delete("/appoiment/:id", cancelAppoiment);
 
 export default router;
