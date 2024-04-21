@@ -1,8 +1,7 @@
-import { Router } from "express"
-import { createMedicalAppointment } from "../controllers/medicalAppointmentController.mjs"
-const router = Router()
+import { Router } from "express";
+import { createMedicalAppointment } from "../controllers/medicalAppointmentController.mjs";
+const router = Router();
 
-router
-  .post("/medicalAppointment", createMedicalAppointment)
+router.post("/appoiment", createMedicalAppointment);
 
-export default router
+export default router;

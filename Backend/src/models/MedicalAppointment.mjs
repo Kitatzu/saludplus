@@ -12,21 +12,8 @@ const MedicalAppointment = sequelize.define("medical_appointment", {
   date: {
     type: DataTypes.DATE,
     allowNull: false,
-    validate: {
-      isInFuture(date) {
-        const currentDate = new Date();
-        const maxDate = new Date(
-          currentDate.getTime() + 60 * 24 * 60 * 60 * 1000
-        ); // 60 días en el futuro
-        if (new Date(date) < currentDate || new Date(date) > maxDate) {
-          throw new Error(
-            "La fecha seleccionada está fuera del rango permitido."
-          );
-        }
-      },
-    },
   },
-  start_date: {
+  start_time: {
     type: DataTypes.TIME,
     allowNull: false,
   },
@@ -37,6 +24,7 @@ const MedicalAppointment = sequelize.define("medical_appointment", {
   state: {
     type: DataTypes.STRING,
     allowNull: false,
+    defaultValue: "pending",
   },
 });
 
