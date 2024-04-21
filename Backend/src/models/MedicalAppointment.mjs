@@ -26,6 +26,22 @@ const MedicalAppointment = sequelize.define("medical_appointment", {
     allowNull: false,
     defaultValue: "pending",
   },
+  idDoctor: {
+    type: DataTypes.UUID,
+    allowNull: false
+  },
+  idPatient: {
+    type: DataTypes.UUID,
+    allowNull: false
+  }
+}, {
+  indexes: [{
+    unique: true,
+    name: 'unique_medical_appointment',
+    fields: ['idDoctor', 'idPatient', 'date', 'start_time', 'end_time']
+  }]
+})
+  },
 });
 
 Doctor.hasMany(MedicalAppointment, {

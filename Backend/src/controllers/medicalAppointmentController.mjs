@@ -3,6 +3,7 @@ import Doctor from "../models/Doctor.mjs";
 
 export const createMedicalAppointment = async (req, res) => {
   try {
+
     const { date, start_time, end_time, idDoctor, idPatient } = req.body;
 
     const doctor = await Doctor.findByPk(idDoctor, { include: "available" });
@@ -45,7 +46,7 @@ export const createMedicalAppointment = async (req, res) => {
       idPatient,
       date,
       start_time,
-      end_time,
+      end_time
     });
 
     res.status(200).json({
