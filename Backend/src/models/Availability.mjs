@@ -22,14 +22,14 @@ const Availability = sequelize.define(
       type: DataTypes.TIME,
       allowNull: false,
     },
-      state: {
-    type: DataTypes.STRING,
-    allowNull:false,
-    defaultValue: 'disponible'
-  },
     idDoctor: {
       type: DataTypes.UUID,
       allowNull: false,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "available",
     },
   },
   {
