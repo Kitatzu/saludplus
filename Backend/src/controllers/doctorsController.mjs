@@ -191,21 +191,3 @@ export const updateDoctor = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-// doctorsRouter.get("/:id/patients", (req, res) => {
-//   // TODO: Get patients from doctor
-//   try {
-//   } catch (error) {}
-// });
-
-// doctorsRouter.get("/:id/appointments", (req, res) => {
-//   // TODO: Get appointments from doctor
-//   try {
-//   } catch (error) {}
-// });
-
-// doctorsRouter.get("/:id/schedules", (req, res) => {
-//   // TODO: Get schedules from doctor
-//   try {
-//   } catch (error) {}
-// });
