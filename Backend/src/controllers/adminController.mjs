@@ -2,6 +2,8 @@ import Doctor from "../models/Doctor.mjs";
 import Patient from "../models/Patient.mjs";
 import Admin from "../models/Admin.mjs";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { generateToken } from "../utilities/auth.mjs";
 
 export const loginController = async (req, res) => {
   const { email, password } = req.body;
@@ -19,12 +21,16 @@ export const loginController = async (req, res) => {
     }
 
     let usuario;
+    let idField;
     if (doctor) {
       usuario = doctor;
+      idField = usuario.idDoctor;
     } else if (patient) {
       usuario = patient;
+      idField = usuario.idPatient;
     } else {
       usuario = admin;
+      idField = usuario.idAdmin;
     }
 
     const passwordMatch = await bcrypt.compare(password, usuario.password);
@@ -33,10 +39,12 @@ export const loginController = async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta." });
     }
 
+    const token = generateToken({ id: idField, data: usuario.rol });
+
     res
       .status(200)
-      .json({ success: true, message: "Login successfully", data: usuario });
+      .json({ success: true, message: "Login successfully", data: token });
   } catch (error) {
-    res.status(500).json({ error: error });
+    res.status(500).json({ success: false, message: "Error", data: error });
   }
 };

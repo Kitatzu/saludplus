@@ -1,15 +1,62 @@
 import bcrypt from "bcrypt";
 import Doctor from "../models/Doctor.mjs";
+import Availability from "../models/Availability.mjs";
 import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
 export const getDoctors = async (req, res) => {
   // TODO: Get all doctors from DB
   try {
-    const doctors = await Doctor.findAll({
-      attributes: {
-        exclude: ["password", "createdAt", "updatedAt"],
-      },
+    const { speciality } = req.query;
+
+    // Si no se proporciona una especialidad en la consulta
+    if (!speciality) {
+      let doctors = await Doctor.findAll({
+        include: [
+          { model: Availability, as: "available" },
+          {
+            model: MedicalSpeciality,
+            attributes: ["speciality"],
+            as: "speciality",
+          },
+        ],
+      });
+
+      if (!doctors || doctors.length === 0) {
+        return res.status(404).json({
+          success: false,
+          message: "Doctors not founded",
+        });
+      }
+
+      return res.status(200).json({
+        success: true,
+        data: doctors,
+      });
+    }
+
+    // Si se proporciona una especialidad en la consulta
+    let doctors = await Doctor.findAll({
+      include: [
+        {
+          model: Availability,
+          as: "available",
+        },
+        {
+          model: MedicalSpeciality,
+          attributes: ["speciality"],
+          as: "speciality",
+          where: { speciality: speciality },
+        },
+      ],
     });
+
+    if (!doctors || doctors.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: `Doctors not founded for speciality '${speciality}'`,
+      });
+    }
+
     res.status(200).json({
       success: true,
       data: doctors,
@@ -144,21 +191,3 @@ export const updateDoctor = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-// doctorsRouter.get("/:id/patients", (req, res) => {
-//   // TODO: Get patients from doctor
-//   try {
-//   } catch (error) {}
-// });
-
-// doctorsRouter.get("/:id/appointments", (req, res) => {
-//   // TODO: Get appointments from doctor
-//   try {
-//   } catch (error) {}
-// });
-
-// doctorsRouter.get("/:id/schedules", (req, res) => {
-//   // TODO: Get schedules from doctor
-//   try {
-//   } catch (error) {}
-// });

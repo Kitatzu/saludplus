@@ -2,14 +2,13 @@ import bcrypt from "bcrypt";
 import Patient from "../models/Patient.mjs";
 
 export const getPatients = async (req, res) => {
-  // TODO: Get all patients from DB
   try {
     const allPatients = await Patient.findAll({
       attributes: {
         exclude: ["password"],
       },
     });
-    res.status(200).json({
+    res.json({
       success: true,
       data: allPatients,
     });
@@ -19,7 +18,6 @@ export const getPatients = async (req, res) => {
 };
 
 export const registerPatient = async (req, res) => {
-  // TODO: Add new patient to DB
   try {
     const {
       first_name,
@@ -58,8 +56,42 @@ export const registerPatient = async (req, res) => {
   }
 };
 
+export const loginPatient = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const patient = await Patient.findOne({
+      where: {
+        email: email,
+      },
+    });
+    if (!patient) {
+      return res.status(404).json({
+        success: false,
+        message: "Patient not found",
+      });
+    }
+    const isMatch = await bcrypt.compare(password, patient.password);
+    if (!isMatch) {
+      return res.status(404).json({
+        success: false,
+        message: "Invalid password",
+      });
+    }
+    res.json({
+      success: true,
+      data: patient,
+      message: "User logged in successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+      message: "Error logging user",
+    });
+  }
+};
+
 export const getPatientById = async (req, res) => {
-  // TODO: Get patient from DB
   try {
     const { idPatient } = req.params;
     const patient = await Patient.findOne(
