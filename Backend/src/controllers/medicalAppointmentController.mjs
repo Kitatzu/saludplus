@@ -1,11 +1,14 @@
 import MedicalAppointment from "../models/MedicalAppointment.mjs";
 import Doctor from "../models/Doctor.mjs";
+import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
 export const createMedicalAppointment = async (req, res) => {
   try {
     const { date, start_time, end_time, idDoctor, idPatient } = req.body;
 
-    const doctor = await Doctor.findByPk(idDoctor, { include: "available" });
+    const doctor = await Doctor.findByPk(idDoctor, {
+      include: ["available", "speciality"],
+    });
 
     if (!doctor) {
       return res.status(404).json({
@@ -43,6 +46,7 @@ export const createMedicalAppointment = async (req, res) => {
     const newAppoiment = await MedicalAppointment.create({
       idDoctor,
       idPatient,
+      idMedicalSpeciality: doctor.speciality.idMedicalSpeciality,
       date,
       start_time,
       end_time,
@@ -76,6 +80,11 @@ export const getMedicalAppoiments = async (req, res) => {
     if (idPatient) {
       const allAppoiment = await MedicalAppointment.findAll({
         where: { idPatient: idPatient },
+        include: {
+          model: MedicalSpeciality,
+          as: "medicalAppoimentSpeciality",
+          attributes: ["speciality"],
+        },
       });
 
       if (!allAppoiment.length) {
@@ -88,6 +97,11 @@ export const getMedicalAppoiments = async (req, res) => {
     } else if (idDoctor) {
       const allAppoiment = await MedicalAppointment.findAll({
         where: { idDoctor: idDoctor },
+        include: {
+          model: MedicalSpeciality,
+          as: "medicalAppoimentSpeciality",
+          attributes: ["speciality"],
+        },
       });
 
       if (!allAppoiment.length) {

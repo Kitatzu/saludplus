@@ -39,7 +39,7 @@ export const loginController = async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta." });
     }
 
-    const token = generateToken({ id: idField, data: usuario.rol });
+    const token = generateToken({ id: idField, rol: usuario.rol });
 
     res
       .status(200)

@@ -2,6 +2,7 @@ import { DataTypes, UUIDV4 } from "sequelize";
 import sequelize from "../database/startDb.mjs";
 import Patient from "./Patient.mjs";
 import Doctor from "./Doctor.mjs";
+import MedicalSpeciality from "./MedicalSpeciality.mjs";
 
 const MedicalAppointment = sequelize.define(
   "medical_appointment",
@@ -35,6 +36,10 @@ const MedicalAppointment = sequelize.define(
     idPatient: {
       type: DataTypes.UUID,
       allowNull: false,
+    },
+    idMedicalSpeciality: {
+      type: DataTypes.UUID,
+      allowNull: false, // Ajusta si la especialidad es obligatoria
     },
   },
   {
@@ -78,6 +83,22 @@ MedicalAppointment.belongsTo(Patient, {
     allowNull: false,
   },
   as: "patientAppointments",
+});
+
+MedicalSpeciality.hasOne(MedicalAppointment, {
+  foreignKey: {
+    name: "idMedicalSpeciality",
+    allowNull: false,
+  },
+  as: "specialityMedicalAppoiment",
+});
+
+MedicalAppointment.belongsTo(MedicalSpeciality, {
+  foreignKey: {
+    name: "idMedicalSpeciality",
+    allowNull: false,
+  },
+  as: "medicalAppoimentSpeciality",
 });
 
 export default MedicalAppointment;
