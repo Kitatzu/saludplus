@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config({ path: '.env.development' });
+import dotenv from "dotenv";
+dotenv.config({ path: ".env.development" });
 
 import express from "express";
 import cors from "cors";
@@ -7,16 +7,15 @@ import router from "./src/routes/indexRoutes.mjs";
 import sequelize from "./src/database/startDb.mjs";
 import { medicalSpecialitySeed } from "./src/database/seedSpeciality.mjs";
 
+const app = express();
 
-const app = express()
-
-app.disable("x-powered-by")
-app.use(express.json())
-app.use(cors())
+app.disable("x-powered-by");
+app.use(express.json());
+app.use(cors());
 
 app.use(router);
 
-const PORT = 3001 || process.env.PORT
+const PORT = 3001 || process.env.PORT;
 
 sequelize
   .sync({ alter: true }) // Utiliza { force: true } solo en desarrollo si quieres recrear tablas
