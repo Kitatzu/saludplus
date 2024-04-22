@@ -2,10 +2,13 @@
 import axios from "axios";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { useUserStore } from "@/utilities/store/Store.js";
 import "./loginModalStyles.css";
 
 const LoginModal = ({ onClose }) => {
   const router = useRouter();
+  const setToken = useUserStore((state) => state.setToken);
+
   // Función para cerrar el modal cuando se hace clic fuera de él
   const handleClickOutside = (event) => {
     if (event.target.classList.contains("modal-overlay")) {
@@ -24,6 +27,7 @@ const LoginModal = ({ onClose }) => {
     await axios
       .post("http://localhost:3001/login", data)
       .then((response) => {
+        setToken(response.data);
         router.push("/dashboard");
         onClose();
       })
