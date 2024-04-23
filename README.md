@@ -19,13 +19,19 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 - Autenticación con Json Web Token
 - Deploy en Render.
 
+
 <strong> <span style="font-size: 16px"> Construido en: 🛠️</span> </strong>
 
-<div align="center" margin-right="20px">
 
+<div margin-right="20px">
+<a  target="_blank" style="margin-right: 10px; text-decoration:none;">
+<img src="https://skillicons.dev/icons?i=js,nodejs,express,sequelize,postgres,yarn" alt=github" style="margin-bottom: 5px;" />
+</a>
 </div>
 
+
 <strong> <span style="font-size: 16px">Desarrolladores 💻</span> </strong>
+
 
 <hr>
 
@@ -33,13 +39,37 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 
 <strong> <span> TAREAS 📋</span> </strong>
 
-- Aca van las tareas del Front
+- Desarrollo de componentes dinámicos con Javascript y NextJs.
+- Agregar estilo con componentes personalizados con css.
+- Creado de enrutado de carpeta proporcionado por NextJs.
+- Uso React Hook Form para validacion de formularios.
+- Uso de Axios para peticiones a la API.
+- Deploy en Vercel
+
 
 <strong> <span style="font-size: 16px"> Construido en: 🛠️</span> </strong>
 
--- Tecnologías Frontend --
+<div margin-right="20px">
+<a  target="_blank" style="margin-right: 10px; text-decoration:none;">
+<img src="https://skillicons.dev/icons?i=js,nextjs,html,css,yarn" alt=github" style="margin-bottom: 5px;" />
+</a>
+</div>
+
 
 <strong> <span style="font-size: 16px">Desarrolladores 💻 </span> </strong>
+
+<hr>
+
+## UX/UI
+<strong> <span style="font-size: 16px"> Construido en: 🛠️</span> </strong>
+<div margin-right="20px">
+<a  target="_blank" style="margin-right: 10px; text-decoration:none;">
+<img src="https://skillicons.dev/icons?i=figma" alt=github" style="margin-bottom: 5px;" />
+</a>
+</div>
+
+
+<strong> <span style="font-size: 16px"> Diseñadora 💻 </span> </strong>
 
 <hr>
 
