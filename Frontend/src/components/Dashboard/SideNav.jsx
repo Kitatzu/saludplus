@@ -16,7 +16,7 @@ export const SideNav = () => {
       </div>
       <div>
         <Link
-          href="/Calendar"
+          href="/dashboard/calendar"
           className={`link-nav ${
             pathname === "/dashboard/calendar" ? "active" : ""
           } `}

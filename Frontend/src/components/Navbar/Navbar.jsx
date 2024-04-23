@@ -21,7 +21,7 @@ export default function Navbar() {
       <Link href="/">
         <p> Inicio </p>
       </Link>
-      <Link href="/">
+      <Link href="/services">
         <p> Servicios </p>
       </Link>
       <p onClick={handleOpenModal}> Ingresar </p>
