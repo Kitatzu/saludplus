@@ -28,7 +28,6 @@ export default function Navbar() {
   return (
     <nav className="navBar">
       <img src="/Frame.svg" className="logo" />
-
       {isLogin ? (
         <>
           <Link href="/">
@@ -44,7 +43,7 @@ export default function Navbar() {
           <Link href="/">
             <p> Inicio </p>
           </Link>
-          <Link href="/">
+          <Link href="/services">
             <p> Servicios </p>
           </Link>
           <p onClick={handleOpenModal}> Ingresar </p>

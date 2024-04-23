@@ -1,3 +1,9 @@
+import MyCalendar from "@/components/Calendar/Calendar";
+
 export default function AppoimentPage() {
-  return <div> Appoiment page </div>;
+  return (
+    <div>
+      <MyCalendar />
+    </div>
+  )
 }
