@@ -34,7 +34,9 @@ export const AppoimentCard = () => {
       const authToken = localStorage.getItem("authToken");
       const token = JSON.parse(authToken);
       const response = await fetchAppoiments(token);
-      console.log(response);
+      if (!response) {
+        throw console.error("Peticion no realizada");
+      }
       setFetchedAppointments(response.data);
     };
 
@@ -42,34 +44,39 @@ export const AppoimentCard = () => {
   }, []);
 
   return (
-    fetchedAppointments.length > 0 &&
-    fetchedAppointments.map((appointment) => (
-      <article
-        key={appointment.idMedicalAppointment}
-        className="appoiment_card"
-      >
-        <div className="text_container">
-          <span className={`state ${getStateClass(appointment.state)}`}>
-            {appointment.state}
-          </span>
-          <h1>
-            {capitalizeFirstLetter(
-              appointment.medicalAppoimentSpeciality.speciality
-            )}
-          </h1>
-          <span className="date">
-            {formatDate(appointment.date)}, {appointment.start_time}
-          </span>
-        </div>
-        <div className="icons_container">
-          <button>
-            <img src="/icons/Bell.svg" alt="notification" />
-          </button>
-          <button>
-            <img src="/icons/DeleteClosed.svg" alt="Delete Appoiment" />
-          </button>
-        </div>
-      </article>
-    ))
+    <>
+      {fetchedAppointments.length > 0 ? (
+        fetchedAppointments.map((appointment) => (
+          <article
+            key={appointment.idMedicalAppointment}
+            className="appoiment_card"
+          >
+            <div className="text_container">
+              <span className={`state ${getStateClass(appointment.state)}`}>
+                {appointment.state}
+              </span>
+              <h1>
+                {capitalizeFirstLetter(
+                  appointment.medicalAppoimentSpeciality.speciality
+                )}
+              </h1>
+              <span className="date">
+                {formatDate(appointment.date)}, {appointment.start_time}
+              </span>
+            </div>
+            <div className="icons_container">
+              <button>
+                <img src="/icons/Bell.svg" alt="notification" />
+              </button>
+              <button>
+                <img src="/icons/DeleteClosed.svg" alt="Delete Appoiment" />
+              </button>
+            </div>
+          </article>
+        ))
+      ) : (
+        <p>No hay citas médicas disponibles en este momento.</p>
+      )}
+    </>
   );
 };
