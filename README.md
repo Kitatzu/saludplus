@@ -2,17 +2,17 @@
 
 ![Imagen portada Salud plus](/Frontend/public/Logo-SaludPlus.png)
 
-<span style="font-size: 18px"> ¿Cansado de las largas filas y la espera interminable para conseguir un turno médico? ¡SaludPlus llegó para cambiarlo todo!
-Con nuestra aplicación, podrás reservar citas médicas de forma rápida, sencilla y segura desde la comodidad de tu hogar, sin necesidad de llamadas telefónicas ni largas esperas en recepciones.
-</span>
+<h3>¿Cansado de las largas filas y la espera interminable para conseguir un turno médico? ¡SaludPlus llegó para cambiarlo todo!
+Con nuestra aplicación, podrás reservar citas médicas de forma rápida, sencilla y segura desde la comodidad de tu hogar, sin necesidad de llamadas telefónicas ni largas esperas en recepciones.</h3>
 
-<strong><span style="font-size: 50px" >SaludPlus, la salud al alcance de tu mano!</span></strong>
+
+<h3 align="center">SaludPlus, la salud al alcance de tu mano!</h3>
 
 <hr>
 
 ## Backend
 
-<strong> <span > TAREAS 📋</span> </strong>
+### TAREAS 📋
 
 - Desarrollo de Rest Api para gestionar turnos medicos con NodeJs y Express.
 - Base de datos PostgreSQL.
@@ -20,7 +20,7 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 - Deploy en Render.
 
 
-<strong> <span font-size="50px"> Construido en: 🛠️</span> </strong>
+ ### Construido en: 🛠️
 
 
 <div margin-right="20px">
@@ -30,14 +30,14 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 </div>
 
 
-<strong> <span font-size="20px">Desarrolladores 💻</span> </strong>
+## Desarrolladores 💻
 
 
 <hr>
 
 ## Frontend
 
-<strong> <span> TAREAS 📋</span> </strong>
+### TAREAS 📋
 
 - Desarrollo de componentes dinámicos con Javascript y NextJs.
 - Agregar estilo con componentes personalizados con css.
@@ -47,7 +47,7 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 - Deploy en Vercel
 
 
-<strong> <span style="font-size: 20px"> Construido en: 🛠️</span> </strong>
+### Construido en: 🛠️
 
 <div margin-right="20px">
 <a  target="_blank" style="margin-right: 10px; text-decoration:none;">
@@ -56,12 +56,12 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 </div>
 
 
-<strong> <span style="font-size: 20px">Desarrolladores 💻 </span> </strong>
+### Desarrolladores 💻 
 
 <hr>
 
 ## UX/UI
-<strong> <span style="font-size: 20px"> Construido en: 🛠️</span> </strong>
+### Construido en: 🛠️
 <div margin-right="20px">
 <a  target="_blank" style="margin-right: 10px; text-decoration:none;">
 <img src="https://skillicons.dev/icons?i=figma" alt=github" style="margin-bottom: 5px;" />
