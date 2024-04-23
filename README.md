@@ -14,11 +14,16 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 
 <strong> <span > TAREAS 📋</span> </strong>
 
-- Aca van las tareas del Backend
+- Desarrollo de Rest Api para gestionar turnos medicos con NodeJs y Express.
+- Base de datos PostgreSQL.
+- Autenticación con Json Web Token
+- Deploy en Render.
 
 <strong> <span style="font-size: 16px"> Construido en: 🛠️</span> </strong>
 
--- Tecnologías Backend --
+<div align="center" margin-right="20px">
+
+</div>
 
 <strong> <span style="font-size: 16px">Desarrolladores 💻</span> </strong>
 
