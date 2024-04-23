@@ -1,0 +1,99 @@
+/**.content-slider {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10rem;
+}
+
+.button {
+    display: inline;
+    margin-left: 30rem;
+    margin-bottom: 10rem;
+}
+
+.button button {
+    width: 90px;
+    height: 67px;
+    border-radius: 10px;
+    border-color: #bea5ea;
+    background-color: #bea5ea;
+    color: white;
+    cursor: pointer;
+}**/
+
+.carousel {
+    position: absolute;
+    overflow: visible;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    margin: 15rem;
+    position: relative;
+  }
+
+  .content h1 {
+    margin: 0;
+    top: 25%;
+    left: 0;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+
+  .content p {
+    top: 0;
+    left: -5rem;
+    margin: 5rem;
+    position: absolute;
+  }
+
+  .content img{
+    top: 10%;
+    right: 0;
+    margin: 0;
+    bottom: 10%;
+    position: absolute;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: translateX(5);
+  }
+
+  .prev, .next {
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color:#BEA5EA;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .prev {
+    left: 0;
+    width: 50px;
+    height: 80px;
+  }
+
+  .next {
+    right: 0;
+    width: 50px;
+    height: 80px;
+ }
