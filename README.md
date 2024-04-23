@@ -6,7 +6,7 @@
 Con nuestra aplicación, podrás reservar citas médicas de forma rápida, sencilla y segura desde la comodidad de tu hogar, sin necesidad de llamadas telefónicas ni largas esperas en recepciones.
 </span>
 
-<strong><span style="font-size: 18px">SaludPlus, la salud al alcance de tu mano!</span></strong>
+<strong><span style="font-size: 50px" >SaludPlus, la salud al alcance de tu mano!</span></strong>
 
 <hr>
 
@@ -20,7 +20,7 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 - Deploy en Render.
 
 
-<strong> <span style="font-size: 16px"> Construido en: 🛠️</span> </strong>
+<strong> <span font-size="50px"> Construido en: 🛠️</span> </strong>
 
 
 <div margin-right="20px">
@@ -30,7 +30,7 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 </div>
 
 
-<strong> <span style="font-size: 16px">Desarrolladores 💻</span> </strong>
+<strong> <span font-size="20px">Desarrolladores 💻</span> </strong>
 
 
 <hr>
@@ -47,7 +47,7 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 - Deploy en Vercel
 
 
-<strong> <span style="font-size: 16px"> Construido en: 🛠️</span> </strong>
+<strong> <span style="font-size: 20px"> Construido en: 🛠️</span> </strong>
 
 <div margin-right="20px">
 <a  target="_blank" style="margin-right: 10px; text-decoration:none;">
@@ -56,12 +56,12 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 </div>
 
 
-<strong> <span style="font-size: 16px">Desarrolladores 💻 </span> </strong>
+<strong> <span style="font-size: 20px">Desarrolladores 💻 </span> </strong>
 
 <hr>
 
 ## UX/UI
-<strong> <span style="font-size: 16px"> Construido en: 🛠️</span> </strong>
+<strong> <span style="font-size: 20px"> Construido en: 🛠️</span> </strong>
 <div margin-right="20px">
 <a  target="_blank" style="margin-right: 10px; text-decoration:none;">
 <img src="https://skillicons.dev/icons?i=figma" alt=github" style="margin-bottom: 5px;" />
@@ -69,7 +69,7 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
 </div>
 
 
-<strong> <span style="font-size: 16px"> Diseñadora 💻 </span> </strong>
+<strong> <span style="font-size: 20px"> Diseñadora 💻 </span> </strong>
 
 <hr>
 
