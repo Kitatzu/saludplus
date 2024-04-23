@@ -1,9 +1,10 @@
 import "./dashboard.css";
+import { AppoimentCard } from "@/components/Dashboard/AppoimentCard/AppoimentCard";
 
 export default function Dashboard() {
   return (
-    <div className="page_container">
-      <h1> Home Dashboard</h1>
+    <div className="dashboard_page">
+      <AppoimentCard />
     </div>
   );
 }

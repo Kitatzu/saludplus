@@ -2,8 +2,11 @@
 import Image from "next/image";
 import "./reg-style.css";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export const DoctorsRegister = () => {
+  const router = useRouter();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -22,7 +25,7 @@ export const DoctorsRegister = () => {
     axios
       .post(`http://localhost:3001/doctors/register`, data)
       .then((response) => {
-        console.log(response.data);
+        router.push("/dashboard");
       })
       .catch((error) => {
         console.log(error);
@@ -110,9 +113,9 @@ export const DoctorsRegister = () => {
               <div className="input__container">
                 <label htmlFor="specialty-dropdown">Especialidad*</label>
                 <select id="speciality" name="speciality">
-                  <option value="Cardiología">Cardiología</option>
-                  <option value="Traumatologia">Traumatologia</option>
-                  <option value="Clinico">Clinico</option>
+                  <option value="cardiologia">Cardiología</option>
+                  <option value="traumatologia">Traumatologia</option>
+                  <option value="clinico">Clinico</option>
                 </select>
               </div>
               <div className="input__container">
