@@ -106,7 +106,7 @@ export const Carousel = () => {
       imageUrl: "/images/Vector.svg"
     },
     {
-      title: "Chat / Videollamada",
+      title: "Chat y Videollamadas",
       description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
       imageUrl: "/images/Vector.svg"
     },
@@ -127,7 +127,7 @@ export const Carousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000); // Cambia el valor para ajustar la velocidad del carrusel
+    }, 5000); // Cambia el valor para ajustar la velocidad del carrusel
 
     return () => clearInterval(interval);
   }, [currentSlide]);

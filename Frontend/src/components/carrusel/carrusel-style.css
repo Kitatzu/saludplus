@@ -41,14 +41,16 @@
   .content {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
-    margin: 15rem;
+    margin: 10rem;
+    margin-right: 14rem;
     position: relative;
   }
 
   .content h1 {
-    margin: 0;
+    margin: 10rem;
+    margin-right: 35rem;
     top: 25%;
     left: 0;
     position: absolute;
@@ -58,14 +60,15 @@
   .content p {
     top: 0;
     left: -5rem;
-    margin: 5rem;
+    margin: 13rem;
+    margin-right: 35rem;
     position: absolute;
   }
 
   .content img{
     top: 10%;
     right: 0;
-    margin: 0;
+    margin: 2rem;
     bottom: 10%;
     position: absolute;
   }
