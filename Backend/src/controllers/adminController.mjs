@@ -2,7 +2,6 @@ import Doctor from "../models/Doctor.mjs";
 import Patient from "../models/Patient.mjs";
 import Admin from "../models/Admin.mjs";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { generateToken } from "../utilities/auth.mjs";
 
 export const loginController = async (req, res) => {

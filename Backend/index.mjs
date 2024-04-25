@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(router);
 
-const port = 3001 || process.env.PORT;
+const port = process.env.PORT || 3001;
 
 sequelize
   .sync({ alter: true }) // Utiliza { force: true } solo en desarrollo si quieres recrear tablas
