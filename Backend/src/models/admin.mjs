@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../database/startDb.mjs";
 
 const Admin = sequelize.define("admin", {
-  id: {
+  idAdmin: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
