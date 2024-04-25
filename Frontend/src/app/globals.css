@@ -40,7 +40,7 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -71,7 +71,7 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -104,4 +104,18 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.header {
+  background-color: #966bdd;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0 5rem;
+  height: 4rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
 }

@@ -1,0 +1,38 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  & div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 5rem;
+  }
+
+  & div:last-child {
+    & strong {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (width < 850px) {
+  .container {
+    padding-top: 20rem;
+    gap: 1rem;
+
+    & div:first-child {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      padding-top: 0;
+    }
+
+    & div:last-child {
+      padding-bottom: 1rem;
+    }
+  }
+}
