@@ -7,7 +7,7 @@ export const SideNav = () => {
   const pathname = usePathname();
   const links = [
     {
-      href: "/dashboard/calendar",
+      href: "/dashboard/appoiment",
       text: "Turnos",
       iconSrc: "/icons/Calendar.svg",
     },

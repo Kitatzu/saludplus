@@ -1,9 +1,7 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-export const axiosUser = axios.create({
-  baseURL: `${process.env.API_URL}`,
-});
+const url = process.env.NEXT_PUBLIC_URL;
 
 export const fetchAppoiments = async (token) => {
   if (!token) {
@@ -18,13 +16,47 @@ export const fetchAppoiments = async (token) => {
     const payload = jwtDecode(token.state.userToken.data);
     const URL =
       payload.rol === "doctor"
-        ? `http://localhost:3001/appoiment/?idDoctor=${payload.id}`
-        : `http://localhost:3001/appoiment/?idPatient=${payload.id}`;
+        ? `${url}?idDoctor=${payload.id}`
+        : `${url}?idPatient=${payload.id}`;
 
     const response = await axios.get(URL);
 
+    if (!response.data || response.data.length === 0) {
+      return "No hay datos";
+    }
+
     return response.data;
   } catch (error) {
-    console.error("Error fetching appointments:", error);
+    console.log(error);
+  }
+};
+
+export const fetchSpecialities = async () => {
+  try {
+    const response = await axios.get(`${url}speciality`);
+
+    if (!response.data || response.data.length === 0) {
+      throw new Error("No specialities founded");
+    }
+
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching specialities");
+  }
+};
+
+export const fetchAvailableDoctors = async (speciality) => {
+  try {
+    const response = await axios.get(
+      `${url}available?speciality=${speciality}`
+    );
+
+    if (!response.data || response.data.length === 0) {
+      throw new Error("No doctors available for speciality");
+    }
+
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching available doctors");
   }
 };

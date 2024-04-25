@@ -17,6 +17,7 @@ const LoginModal = ({ onClose }) => {
   };
 
   const handleSubmit = async (event) => {
+    const uri = process.env.NEXT_PUBLIC_URL;
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = {
@@ -25,7 +26,7 @@ const LoginModal = ({ onClose }) => {
     };
 
     await axios
-      .post("http://localhost:3001/login", data)
+      .post(`${uri}login`, data)
       .then((response) => {
         setToken(response.data);
         router.push("/dashboard");

@@ -1,0 +1,113 @@
+.appoiment_form_container {
+  margin-top: 2rem;
+  width: 60%;
+  height: 78%;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .select_container {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto 1fr;
+    justify-items: center;
+    row-gap: 1rem;
+
+    & select {
+      min-width: 80%;
+      max-width: 80%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 5px;
+      color: #7a52bc;
+      border: 1px solid #a7a7a7;
+      outline: none;
+
+      & :focus {
+        color: #7a52bc;
+        padding: 1rem;
+      }
+    }
+  }
+
+  & .doctors_container {
+    width: 80%;
+    height: 200px;
+    list-style: none;
+
+    & li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+
+      & input[type="radio"] {
+        max-width: 4%;
+        border-radius: 5px;
+        border: 1px solid #a7a7a7;
+        margin: 0 1rem;
+
+        &:checked {
+          border: 1px solid #a7a7a7;
+          background-color: #7a52bc;
+        }
+      }
+
+      & label {
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+    & li:nth-child(odd) {
+      background-color: #f0f0f0; /* Fondo gris para elementos impares */
+    }
+
+    & li:nth-child(even) {
+      background-color: #ffffff; /* Fondo blanco para elementos pares */
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  & .btn_container {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+
+    & .submit {
+      background-color: #7a52bc;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 2rem;
+      color: #ffffff;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: #ffffff;
+        color: #7a52bc;
+        border: 1px solid #7a52bc;
+      }
+    }
+
+    & .cancel {
+      background-color: #ffffff;
+      border: 1px solid #7a52bc;
+      border-radius: 5px;
+      padding: 0.5rem 1.5rem;
+      color: #7a52bc;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: #7a52bc;
+        color: #ffffff;
+      }
+    }
+  }
+}
