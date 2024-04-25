@@ -22,12 +22,11 @@
       font-weight: 900;
     }
 
-    & .success {
-      color: #00a650;
-    }
-
     & .pending {
       color: #efc56f;
+    }
+    & .success {
+      color: #00a650;
     }
 
     & .canceled {

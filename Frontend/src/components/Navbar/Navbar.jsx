@@ -28,16 +28,24 @@ export default function Navbar() {
   return (
     <nav className="navBar">
       <img src="/Frame.svg" className="logo" />
-      <Link href="/">
-        <p> Inicio </p>
-      </Link>
-      <Link href="/services">
-        <p> Servicios </p>
-      </Link>
       {isLogin ? (
-        <p onClick={handleLogout}>Cerrar Sesión</p>
+        <>
+          <Link href="/services">
+            <p> Servicios </p>
+          </Link>
+          <Link href="/dashboard">
+            <p> Perfil </p>
+          </Link>
+          <p onClick={handleLogout}>Cerrar Sesión</p>
+        </>
       ) : (
         <>
+          <Link href="/">
+            <p> Inicio </p>
+          </Link>
+          <Link href="/services">
+            <p> Servicios </p>
+          </Link>
           <p onClick={handleOpenModal}> Ingresar </p>
           {isOpen && <LoginModal isOpen={isOpen} onClose={onClose} />}
           <Link href="/register">
