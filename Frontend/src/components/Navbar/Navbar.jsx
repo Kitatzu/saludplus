@@ -30,7 +30,7 @@ export default function Navbar() {
       <img src="/Frame.svg" className="logo" />
       {isLogin ? (
         <>
-          <Link href="/">
+          <Link href="/services">
             <p> Servicios </p>
           </Link>
           <Link href="/dashboard">
