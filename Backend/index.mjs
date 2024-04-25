@@ -18,7 +18,6 @@ const port = process.env.PORT || 3001;
 sequelize
   .sync({ alter: true }) // Utiliza { force: true } solo en desarrollo si quieres recrear tablas
   .then(() => {
-    startModels();
     medicalSpecialitySeed();
     console.log("Base de datos sincronizada correctamente");
     app.listen(port, () => {
