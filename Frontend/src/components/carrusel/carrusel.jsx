@@ -102,18 +102,18 @@ export const Carousel = () => {
   const slides = [
     {
       title: "Autogestión",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
-      imageUrl: "/images/Vector.svg"
+      description: "Nuestro servicio de autogestión le permite programar sus propios turnos médicos de manera rápida y sencilla, sin necesidad de esperas ni llamadas telefónicas.",
+      imageUrl: "/images/autogestion.png"
     },
     {
       title: "Chat y Videollamadas",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
-      imageUrl: "/images/Vector.svg"
+      description: "Con nuestras videollamadas médicas, puede consultar a un profesional de la salud desde la comodidad de su hogar, recibiendo atención personalizada sin la necesidad de desplazarse.",
+      imageUrl: "/images/Videollamadas.png"
     },
     {
       title: "Historial",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
-      imageUrl: "/images/Vector.svg"
+      description: "Acceda fácilmente a su historial clínico en línea, manteniendo un registro completo de sus consultas pasadas, tratamientos y resultados de exámenes, todo disponible con solo unos clics.",
+      imageUrl: "/images/Historial.png"
     }
   ];
 
