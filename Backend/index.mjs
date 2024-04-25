@@ -3,6 +3,7 @@ import cors from "cors";
 import router from "./src/routes/indexRoutes.mjs";
 import sequelize from "./src/database/startDb.mjs";
 import { medicalSpecialitySeed } from "./src/database/seedSpeciality.mjs";
+import { startModels } from "./src/database/startModels.mjs";
 
 const app = express();
 
@@ -17,6 +18,7 @@ const port = process.env.PORT || 3001;
 sequelize
   .sync({ alter: true }) // Utiliza { force: true } solo en desarrollo si quieres recrear tablas
   .then(() => {
+    startModels();
     medicalSpecialitySeed();
     console.log("Base de datos sincronizada correctamente");
     app.listen(port, () => {

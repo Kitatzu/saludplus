@@ -3,10 +3,9 @@ import MedicalAppointment from "../models/MedicalAppointment.mjs";
 import Patient from "../models/Patient.mjs";
 import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
-
-export default function startModels() {
+export const startModels = () => {
   Admin;
   Patient;
   MedicalAppointment;
   MedicalSpeciality;
-}
+};
