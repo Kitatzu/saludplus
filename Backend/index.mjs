@@ -1,11 +1,9 @@
-import dotenv from "dotenv";
-dotenv.config({ path: ".env.development" });
-
 import express from "express";
 import cors from "cors";
 import router from "./src/routes/indexRoutes.mjs";
 import sequelize from "./src/database/startDb.mjs";
 import { medicalSpecialitySeed } from "./src/database/seedSpeciality.mjs";
+import { startModels } from "./src/database/startModels.mjs";
 
 const app = express();
 
@@ -15,15 +13,15 @@ app.use(cors());
 
 app.use(router);
 
-const PORT = 3001 || process.env.PORT;
+const port = process.env.PORT || 3001;
 
 sequelize
   .sync({ alter: true }) // Utiliza { force: true } solo en desarrollo si quieres recrear tablas
   .then(() => {
     medicalSpecialitySeed();
     console.log("Base de datos sincronizada correctamente");
-    app.listen(PORT, () => {
-      console.log(`Servidor escuchando en el puerto ${PORT}`);
+    app.listen(port, () => {
+      console.log(`Servidor escuchando en el puerto ${port}`);
     });
   })
   .catch((error) => {

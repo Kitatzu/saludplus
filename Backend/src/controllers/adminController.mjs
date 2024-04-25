@@ -1,8 +1,6 @@
 import Doctor from "../models/Doctor.mjs";
 import Patient from "../models/Patient.mjs";
-import Admin from "../models/Admin.mjs";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { generateToken } from "../utilities/auth.mjs";
 
 export const loginController = async (req, res) => {
@@ -14,9 +12,8 @@ export const loginController = async (req, res) => {
     }
     const patient = await Patient.findOne({ where: { email: email } });
     const doctor = await Doctor.findOne({ where: { email: email } });
-    const admin = await Admin.findOne({ where: { email: email } });
 
-    if (!patient && !doctor && !admin) {
+    if (!patient && !doctor) {
       return res.status(404).json({ message: "email not founded" });
     }
 
@@ -28,9 +25,6 @@ export const loginController = async (req, res) => {
     } else if (patient) {
       usuario = patient;
       idField = usuario.idPatient;
-    } else {
-      usuario = admin;
-      idField = usuario.idAdmin;
     }
 
     const passwordMatch = await bcrypt.compare(password, usuario.password);

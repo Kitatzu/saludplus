@@ -4,13 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node --env-file=.env index.mjs",
+    "start": "node index.mjs",
     "dev": "nodemon --env-file=.env index.mjs"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
     "express": "^4.19.2",
     "jsonwebtoken": "9.0.2",
     "pg": "^8.11.4",
