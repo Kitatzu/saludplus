@@ -1,0 +1,12 @@
+.appoiment_btn {
+  background-color: #7a52bc;
+  border: none;
+  padding: 0.6rem;
+  cursor: pointer;
+  color: #ffffff;
+  transition: 1s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}

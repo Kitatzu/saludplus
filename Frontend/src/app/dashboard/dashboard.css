@@ -17,14 +17,3 @@
     height: 100vh;
   }
 }
-
-/* Estilos de page dashboard */
-.dashboard_page {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
-}

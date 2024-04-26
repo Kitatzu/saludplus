@@ -1,6 +1,5 @@
 import bcrypt from "bcrypt";
 import Doctor from "../models/Doctor.mjs";
-import Availability from "../models/Availability.mjs";
 import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
 export const getDoctors = async (req, res) => {
@@ -12,7 +11,6 @@ export const getDoctors = async (req, res) => {
     if (!speciality) {
       let doctors = await Doctor.findAll({
         include: [
-          { model: Availability, as: "available" },
           {
             model: MedicalSpeciality,
             attributes: ["speciality"],
@@ -37,10 +35,6 @@ export const getDoctors = async (req, res) => {
     // Si se proporciona una especialidad en la consulta
     let doctors = await Doctor.findAll({
       include: [
-        {
-          model: Availability,
-          as: "available",
-        },
         {
           model: MedicalSpeciality,
           attributes: ["speciality"],
