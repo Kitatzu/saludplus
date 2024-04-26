@@ -4,6 +4,7 @@ import { useDoctorsStore } from "@/utilities/store/Store";
 import { tokenDecode } from "@/utilities/request/decode";
 import { robotoFont } from "@/fonts/fonts";
 import { addAppoiment } from "@/utilities/request/axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -11,6 +12,8 @@ export const AppoimentForm = () => {
   const [selectSpeciality, setSelectSpeciality] = useState(null);
   const { specialities, setSpecialities, setDoctors, isLoading, doctors } =
     useDoctorsStore();
+
+  const router = useRouter();
 
   useEffect(() => {
     setSpecialities();
@@ -36,6 +39,7 @@ export const AppoimentForm = () => {
     };
 
     await addAppoiment(data);
+    router.push("/dashboard/appoiment");
   };
 
   return (
