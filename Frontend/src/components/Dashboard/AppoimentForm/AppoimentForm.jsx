@@ -29,7 +29,7 @@ export const AppoimentForm = () => {
 
     const data = {
       idDoctor: formData.get("doctor"),
-      idPatient: decodeToken.idPatient,
+      idPatient: decodeToken.id,
       date: formData.get("date"),
       speciality: formData.get("speciality"),
       start_time: formData.get("start_time"),
