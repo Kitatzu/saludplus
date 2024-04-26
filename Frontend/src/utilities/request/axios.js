@@ -1,5 +1,5 @@
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import { tokenDecode } from "./decode";
 
 const url = process.env.NEXT_PUBLIC_URL;
 
@@ -27,11 +27,12 @@ export const fetchAppoiments = async (token) => {
   }
 
   try {
-    const payload = jwtDecode(token.state.userToken.data);
+    const payload = tokenDecode(token);
+
     const URL =
       payload.rol === "doctor"
-        ? `${url}?idDoctor=${payload.id}`
-        : `${url}?idPatient=${payload.id}`;
+        ? `${url}appoiment?idDoctor=${payload.id}`
+        : `${url}appoiment?idPatient=${payload.id}`;
 
     const response = await axios.get(URL);
 
@@ -59,11 +60,9 @@ export const fetchSpecialities = async () => {
   }
 };
 
-export const fetchAvailableDoctors = async (speciality) => {
+export const fetchDoctors = async (speciality) => {
   try {
-    const response = await axios.get(
-      `${url}available?speciality=${speciality}`
-    );
+    const response = await axios.get(`${url}doctors?speciality=${speciality}`);
 
     if (!response.data || response.data.length === 0) {
       throw new Error("No doctors available for speciality");

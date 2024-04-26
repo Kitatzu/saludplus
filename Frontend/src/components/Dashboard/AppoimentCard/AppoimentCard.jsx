@@ -6,11 +6,11 @@ import "./appoiment.css";
 export const AppoimentCard = () => {
   const getStateClass = (state) => {
     console.log(state);
-    return state == "Asistido"
+    return state == "sucess"
       ? "success"
-      : state == "Pendiente"
+      : state == "pending"
       ? "pending"
-      : state == "Cancelado"
+      : state == "canceled"
       ? "canceled"
       : "";
   };
