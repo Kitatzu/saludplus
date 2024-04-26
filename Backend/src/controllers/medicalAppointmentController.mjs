@@ -4,31 +4,16 @@ import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
 
 export const createMedicalAppointment = async (req, res) => {
   try {
-    const { date, start_time, end_time, idDoctor, idPatient } = req.body;
+    const { date, start_time, idDoctor, idPatient } = req.body;
 
     const doctor = await Doctor.findByPk(idDoctor, {
-      include: ["available", "speciality"],
+      include: ["speciality"],
     });
 
     if (!doctor) {
       return res.status(404).json({
         success: false,
         message: "Doctor no encontrado",
-      });
-    }
-
-    const isAvailable = doctor.available.some((availability) => {
-      return (
-        availability.dataValues.date === date &&
-        start_time >= availability.dataValues.start_time &&
-        availability.dataValues.end_time <= end_time
-      );
-    });
-
-    if (!isAvailable) {
-      return res.status(400).json({
-        success: false,
-        message: "El médico no está disponible en el horario especificado",
       });
     }
 
@@ -49,7 +34,6 @@ export const createMedicalAppointment = async (req, res) => {
       idMedicalSpeciality: doctor.speciality.idMedicalSpeciality,
       date,
       start_time,
-      end_time,
     });
 
     res.status(200).json({
