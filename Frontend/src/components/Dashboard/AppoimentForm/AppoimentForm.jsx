@@ -1,13 +1,19 @@
 "use client";
 import "./appoimentForm.css";
 import { useDoctorsStore } from "@/utilities/store/Store";
+import { tokenDecode } from "@/utilities/request/decode";
 import { robotoFont } from "@/fonts/fonts";
+import { addAppoiment } from "@/utilities/request/axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const AppoimentForm = () => {
   const [selectSpeciality, setSelectSpeciality] = useState(null);
   const { specialities, setSpecialities, setDoctors, isLoading, doctors } =
     useDoctorsStore();
+
+  const router = useRouter();
 
   useEffect(() => {
     setSpecialities();
@@ -16,8 +22,24 @@ export const AppoimentForm = () => {
     }
   }, [selectSpeciality]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    const authToken = localStorage.getItem("authToken");
+    const token = JSON.parse(authToken);
+    const decodeToken = tokenDecode(token);
+
     event.preventDefault();
+    const formData = new FormData(event.target);
+
+    const data = {
+      idDoctor: formData.get("doctor"),
+      idPatient: decodeToken.id,
+      date: formData.get("date"),
+      speciality: formData.get("speciality"),
+      start_time: formData.get("start_time"),
+    };
+
+    await addAppoiment(data);
+    router.push("/dashboard/appoiment");
   };
 
   return (
@@ -59,9 +81,9 @@ export const AppoimentForm = () => {
           <option hidden selected value="">
             Seleccione un Horario
           </option>
-          <option value="8:00:00"> 8:00 </option>
+          <option value="8:00:00"> 8:30 </option>
           <option value="9:00:00"> 9:00 </option>
-          <option value="10:00:00"> 10:00 </option>
+          <option value="10:00:00"> 9:30 </option>
         </select>
       </div>
       <div className="doctors_container">

@@ -1,4 +1,5 @@
 import MedicalSpeciality from "../models/MedicalSpeciality.mjs";
+import Doctor from "../models/Doctor.mjs";
 
 export const getMedicalSpeciality = async (req, res) => {
   try {
@@ -15,7 +16,7 @@ export const getMedicalSpeciality = async (req, res) => {
   }
 };
 
-export const createMedicalSpeciality = async (req, res) => {
+export const getDoctorsBySpeciality = async (req, res) => {
   const { speciality, description } = req.body;
 
   try {

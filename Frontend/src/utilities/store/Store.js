@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { fetchAvailableDoctors, fetchSpecialities } from "../request/axios";
+import { fetchDoctors, fetchSpecialities } from "../request/axios";
 
 export const useUserStore = create(
   persist(
@@ -45,7 +45,7 @@ export const useDoctorsStore = create((set) => {
     },
     setDoctors: async (speciality) => {
       try {
-        const res = await fetchAvailableDoctors(speciality);
+        const res = await fetchDoctors(speciality);
         if (!res.data || !res.data.length === 0) {
           return console.log("AYUDAME");
         }

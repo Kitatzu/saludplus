@@ -5,14 +5,13 @@ import "./appoiment.css";
 
 export const AppoimentCard = () => {
   const getStateClass = (state) => {
-    console.log(state);
-    return state == "Asistido"
-      ? "success"
-      : state == "Pendiente"
-      ? "pending"
-      : state == "Cancelado"
-      ? "canceled"
-      : "";
+    const stateMap = {
+      success: "exito",
+      pending: "pendiente",
+      canceled: "cancelado",
+    };
+
+    return stateMap[state] || "";
   };
 
   const [fetchedAppointments, setFetchedAppointments] = useState([]);
@@ -53,7 +52,7 @@ export const AppoimentCard = () => {
           >
             <div className="text_container">
               <span className={`state ${getStateClass(appointment.state)}`}>
-                {appointment.state}
+                {capitalizeFirstLetter(getStateClass(appointment.state))}
               </span>
               <h1>
                 {capitalizeFirstLetter(

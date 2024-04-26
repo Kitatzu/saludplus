@@ -4,54 +4,38 @@ import Patient from "./Patient.mjs";
 import Doctor from "./Doctor.mjs";
 import MedicalSpeciality from "./MedicalSpeciality.mjs";
 
-const MedicalAppointment = sequelize.define(
-  "medical_appointment",
-  {
-    idMedicalAppointment: {
-      type: DataTypes.UUID,
-      defaultValue: UUIDV4,
-      primaryKey: true,
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    start_time: {
-      type: DataTypes.TIME,
-      allowNull: false,
-    },
-    end_time: {
-      type: DataTypes.TIME,
-      allowNull: false,
-    },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "pending",
-    },
-    idDoctor: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
-    idPatient: {
-      type: DataTypes.UUID,
-      allowNull: false,
-    },
-    idMedicalSpeciality: {
-      type: DataTypes.UUID,
-      allowNull: false, // Ajusta si la especialidad es obligatoria
-    },
+const MedicalAppointment = sequelize.define("medical_appointment", {
+  idMedicalAppointment: {
+    type: DataTypes.UUID,
+    defaultValue: UUIDV4,
+    primaryKey: true,
   },
-  {
-    indexes: [
-      {
-        unique: true,
-        name: "unique_medical_appointment",
-        fields: ["idDoctor", "idPatient", "date", "start_time", "end_time"],
-      },
-    ],
-  }
-);
+  date: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  start_time: {
+    type: DataTypes.TIME,
+    allowNull: false,
+  },
+  state: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: "pending",
+  },
+  idDoctor: {
+    type: DataTypes.UUID,
+    allowNull: false,
+  },
+  idPatient: {
+    type: DataTypes.UUID,
+    allowNull: false,
+  },
+  idMedicalSpeciality: {
+    type: DataTypes.UUID,
+    allowNull: false, // Ajusta si la especialidad es obligatoria
+  },
+});
 
 Doctor.hasMany(MedicalAppointment, {
   foreignKey: {

@@ -29,7 +29,7 @@ const LoginModal = ({ onClose }) => {
       .post(`${uri}login`, data)
       .then((response) => {
         setToken(response.data);
-        router.push("/dashboard");
+        router.push("/dashboard/appoiment");
         onClose();
       })
       .catch((error) => {
