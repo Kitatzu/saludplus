@@ -22,14 +22,14 @@
       font-weight: 900;
     }
 
-    & .pending {
+    & .pendiente {
       color: #efc56f;
     }
-    & .success {
+    & .exito {
       color: #00a650;
     }
 
-    & .canceled {
+    & .cancelado {
       color: #f60002;
     }
 
