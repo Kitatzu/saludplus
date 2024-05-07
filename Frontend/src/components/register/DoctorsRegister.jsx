@@ -20,7 +20,7 @@ export const DoctorsRegister = () => {
       speciality: formData.get("speciality"),
     };
     axios
-      .post(`http://localhost:3001/doctors/register`, data)
+      .post(`${process.env.NEXT_PUBLIC_URL}doctors/register`, data)
       .then((response) => {})
       .catch((error) => {
         console.log(error);
