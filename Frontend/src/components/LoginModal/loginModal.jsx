@@ -2,7 +2,7 @@
 import axios from "axios";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { useUserStore } from "@/utilities/store/Store.js";
+import { useUserStore } from "utilities/store/Store";
 import "./loginModalStyles.css";
 
 const LoginModal = ({ onClose }) => {
