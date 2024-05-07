@@ -1,12 +1,12 @@
-import { Inter } from 'next/font/google';
-import './globals.css';
-import Navbar from '@/components/navbar/Navbar';
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'SaludPlus',
-  description: 'App medicalCare',
+  title: "SaludPlus",
+  description: "App medicalCare",
 };
 
 export default function RootLayout({ children }) {
@@ -17,8 +17,7 @@ export default function RootLayout({ children }) {
           <Navbar />
         </header>
         {children}
-        <img src="/Icon-chatbot.svg" className="chat-bot"/>
-
+        <img src="/Icon-chatbot.svg" className="chat-bot" />
       </body>
     </html>
   );

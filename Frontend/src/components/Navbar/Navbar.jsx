@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./nav-style.css";
 import Link from "next/link";
-import { useUserStore } from "@/utilities/store/Store.js";
+import { useUserStore } from "utilities/store/Store";
 import LoginModal from "../LoginModal/loginModal";
 import { useRouter } from "next/navigation";
 
