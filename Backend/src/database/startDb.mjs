@@ -9,6 +9,12 @@ const config = {
     password: process.env.DB_PW, // Tu contraseña de la base de datos
     port: process.env.DB_PORT,
     logging: false,
+    sslmode: true,
+    dialectOptions: {
+      ssl: {
+        require: true,
+      },
+    },
   },
 };
 
