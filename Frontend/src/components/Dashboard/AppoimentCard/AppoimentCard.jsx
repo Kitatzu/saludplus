@@ -1,5 +1,5 @@
 "use client";
-import { fetchAppoiments } from "@/utilities/request/axios";
+import { fetchAppoiments } from "utilities/request/axios";
 import { useEffect, useState } from "react";
 import "./appoiment.css";
 

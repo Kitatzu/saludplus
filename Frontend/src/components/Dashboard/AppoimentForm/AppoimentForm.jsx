@@ -1,12 +1,11 @@
 "use client";
 import "./appoimentForm.css";
-import { useDoctorsStore } from "@/utilities/store/Store";
-import { tokenDecode } from "@/utilities/request/decode";
-import { robotoFont } from "@/fonts/fonts";
-import { addAppoiment } from "@/utilities/request/axios";
+import { useDoctorsStore } from "utilities/store/Store";
+import { tokenDecode } from "utilities/request/decode";
+import { robotoFont } from "fonts/fonts";
+import { addAppoiment } from "utilities/request/axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 export const AppoimentForm = () => {
   const [selectSpeciality, setSelectSpeciality] = useState(null);
