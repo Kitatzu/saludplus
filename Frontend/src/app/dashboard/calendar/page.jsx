@@ -5,5 +5,5 @@ export default function AppoimentPage() {
     <div>
       <MyCalendar />
     </div>
-  )
+  );
 }

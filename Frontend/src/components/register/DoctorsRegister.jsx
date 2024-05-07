@@ -2,11 +2,8 @@
 import Image from "next/image";
 import "./reg-style.css";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 export const DoctorsRegister = () => {
-  const router = useRouter();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -24,9 +21,7 @@ export const DoctorsRegister = () => {
     };
     axios
       .post(`http://localhost:3001/doctors/register`, data)
-      .then((response) => {
-        router.push("/dashboard");
-      })
+      .then((response) => {})
       .catch((error) => {
         console.log(error);
       });
