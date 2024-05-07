@@ -20,7 +20,7 @@ export const PatientsRegister = () => {
     };
 
     axios
-      .post(`http://localhost:3001/patients/register`, data)
+      .post(`${process.env.NEXT_PUBLIC_URL}patients/register`, data)
       .then((response) => {
         console.log(response.data);
       })
