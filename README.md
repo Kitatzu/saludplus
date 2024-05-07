@@ -159,7 +159,7 @@ Con nuestra aplicación, podrás reservar citas médicas de forma rápida, senci
     <div>
       <h2>Leonela Rodriguez</h2>
       <div>
-          <img src="./Frontend/public/images/fotocv1.png" alt="Imagen Persona 1" style="width: 25%">
+          <img src="./Frontend/public/images/fotocv1.png" alt="Imagen Persona 1" style="widht: 100px; height: 100px">
       </div>
       <div>
         &nbsp;
